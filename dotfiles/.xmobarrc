@@ -1,0 +1,17 @@
+Config { font = "-misc-fixed-*-*-*-*-12-*-*-*-*-*-*-*"
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = TopW L 90
+       , lowerOnStart = False
+       , commands = [ Run MultiCpu ["-t", "cpu: <total0>% <total1>%","-L","0","-p","2","-H","50","--normal","green","--high","red"] 5,
+                      Run ThermalZone 0 [] 5,
+                      Run Memory ["-t","Mem: <usedratio>%", "-p", "2", "-L", "50", "-H", "60", "--low", "green", "--normal", "grey", "--high", "red"] 5,
+                      Run Date "%a %_d.%m.%Y %H:%M:%S" "date" 10,
+                      Run Com "sh" ["/home/helluin/Documents/Bash/evenodd.sh"] "cw" 100000,
+                      Run StdinReader,
+                      Run Com "/bin/bash" ["/home/helluin/Documents/Bash/tomatoes.sh"] "pomodoro" 10
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%multicpu% %thermal0% | %memory% | %StdinReader% }{ <fc=#ff0000>[%pomodoro%] </fc><fc=#ee9a00>%date% [%cw%] </fc>"
+       }
