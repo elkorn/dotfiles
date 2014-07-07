@@ -48,7 +48,7 @@ main = do
   xmproc <- spawnPipe "xmobar $HOME/.config/dotfiles/dotfiles/.xmobarrc"
   xmprox <- spawnPipe "$HOME/.config/dotfiles/dotfiles/trayer.sh"
   xmonad $ defaultConfig {
-         terminal = "gnome-terminal",
+         terminal = "gnome-terminal --hide-menubar",
          manageHook =myManageHook <+> manageDocks <+>  manageHook defaultConfig,
          layoutHook = avoidStruts $ smartBorders $  layoutHook defaultConfig,
          logHook = dynamicLogWithPP xmobarPP
