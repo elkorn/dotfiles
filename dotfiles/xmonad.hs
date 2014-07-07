@@ -41,7 +41,7 @@ myWide = Mirror $ Tall nmaster delta ratio
         ratio   = 80/100
 
 main = do
-  xmproc <- spawnPipe "feh --bg-fill ~/Documents/wallpapers/rocketmeteorsky_pon_2048.jpg"
+  xmproc <- spawnPipe "feh --bg-fill $HOME/Desktop/archlinux_logo-wallpaper-1920x1080.jpg"
   xmprox <- spawnPipe "pidgin"
   xmprox <- spawnPipe "subl"
   xmproc <- spawnPipe "xchat"
