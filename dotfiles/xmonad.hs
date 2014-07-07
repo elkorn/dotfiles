@@ -5,12 +5,8 @@ import XMonad.Layout.NoBorders
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Layout.PerWorkspace
--- import XMonad.StackSet as W
--- import XMonad.ManageHook
--- import XMonad.Util.NamedScratchpad
 import System.IO
 
---toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 myWorkspaces = [ "1:Dbg", "2:Dev", "3:Web", "4:Doc", "5:Cht", "6:Med", "7:VM", "8:Org" ]
 myManageHook = composeAll [ 
     className =? "Gimp" --> doFloat,
@@ -19,6 +15,8 @@ myManageHook = composeAll [
     className =? "Pidgin" --> doShift "5:Cht",
     className =? "sublime_text" --> doShift "2:Dev",
     className =? "Sublime_text" --> doShift "2:Dev",
+    className =? "Gvim" --> doShift "2:Dev",
+    className =? "gvim" --> doShift "2:Dev",
     className =? "subl" --> doShift "2:Dev",
     className =? "app.asana.com" --> doShift "8:Org",
     className =? "chromium-browser" --> doShift "3:Web",
@@ -44,16 +42,13 @@ myWide = Mirror $ Tall nmaster delta ratio
 
 main = do
   xmproc <- spawnPipe "feh --bg-fill ~/Documents/wallpapers/rocketmeteorsky_pon_2048.jpg"
-  --xmproc <- spawnPipe "conky"
-  --xmproc <- spawnPipe "xfce4-power-manager"
-  --xmproc <- spawnPipe "dropbox start"
   xmprox <- spawnPipe "pidgin"
   xmprox <- spawnPipe "subl"
-  xmproc <- spawnPipe "tilda"
   xmproc <- spawnPipe "xchat"
-  xmproc <- spawnPipe "xmobar -x 1"
-  xmprox <- spawnPipe "/home/helluin/.xmonad/trayer.sh"
+  xmproc <- spawnPipe "xmobar $HOME/.config/dotfiles/dotfiles/.xmobarrc"
+  xmprox <- spawnPipe "$HOME/.config/dotfiles/dotfiles/trayer.sh"
   xmonad $ defaultConfig {
+         terminal = "gnome-terminal",
          manageHook =myManageHook <+> manageDocks <+>  manageHook defaultConfig,
          layoutHook = avoidStruts $ smartBorders $  layoutHook defaultConfig,
          logHook = dynamicLogWithPP xmobarPP

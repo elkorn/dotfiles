@@ -72,7 +72,7 @@ let g:UltiSnipsExpandTrigger="<leader>x"
 " YCM {{{
 let g:ycm_server_keep_logfiles = 1
 let g:ycm_server_log_level = 'debug'
-let g:EclimCompletionMethod = 'omnifunc'
+" let g:EclimCompletionMethod = 'omnifunc'
 " }}}
 
 " SYNTASTIC {{{
