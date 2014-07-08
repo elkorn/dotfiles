@@ -58,7 +58,7 @@ source /home/elkorn/Code/xiki/etc/vim/xiki.vim
 
 " VIMWIKI {{{
 let g:vimwiki_list = [{'path': '~/vimwiki/',
-    \ 'path_html': '/usr/share/nginx/www/',
+    \ 'path_html': '/usr/share/nginx/html/',
     \ 'template_path': '~/vimwiki/html/__templates/',
     \ 'template_default': 'default',
     \ 'template_ext': '.html',
@@ -75,6 +75,7 @@ let g:UltiSnipsExpandTrigger="<leader>x"
 "
 " " If you want :UltiSnipsEdit to split your window.
  let g:UltiSnipsEditSplit="vertical"
+ let g:UltiSnpsSnippetDirectories=["./.vim/bundle/vim-snippets/UltiSnips", "./.vim/bundle/angular-vim-snippets/UltiSnips"]
 " }}}
 
 " YCM {{{
