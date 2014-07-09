@@ -34,9 +34,9 @@
 [submodule "dotfiles/.vim/bundle/vim-project"]
 	path = dotfiles/.vim/bundle/vim-project
 	url = https://github.com/amiorin/vim-project.git
-[submodule "dotfiles/.vim/bundle/vimshell.vim"]
-	path = dotfiles/.vim/bundle/vimshell.vim
-	url = https://github.com/Shougo/vimshell.vim.git
+[submodule "dotfiles/.vim/bundle/vimshelldotfiles/.vim"]
+	path = dotfiles/.vim/bundle/vimshelldotfiles/.vim
+	url = https://github.com/Shougo/vimshelldotfiles/.vim.git
 [submodule "dotfiles/.vim/bundle/vim-snippets"]
 	path = dotfiles/.vim/bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets.git

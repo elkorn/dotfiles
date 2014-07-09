@@ -58,7 +58,7 @@ source /home/elkorn/Code/xiki/etc/vim/xiki.vim
 
 " VIMWIKI {{{
 let g:vimwiki_list = [{'path': '~/vimwiki/',
-    \ 'path_html': '/usr/share/nginx/html/',
+    \ 'path_html': '~/vimwiki/html/',
     \ 'template_path': '~/vimwiki/html/__templates/',
     \ 'template_default': 'default',
     \ 'template_ext': '.html',
