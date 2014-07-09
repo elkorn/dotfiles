@@ -9,9 +9,10 @@ Config { font = "-misc-fixed-*-*-*-*-12-*-*-*-*-*-*-*"
                       Run Date "%a %_d.%m.%Y %H:%M:%S" "date" 10,
                       Run Com "/bin/bash" ["/home/elkorn/.config/bash/evenodd.sh"] "cw" 100000,
                       Run StdinReader,
+                      Run Battery ["-L","50","-H","75","--high","green","--normal","yellow", "--low", "red"] 10,
                       Run Com "node" ["/home/elkorn/Code/pomodorojs/bin/showtime.js"] "pomodoro" 10
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%multicpu% %thermal0% | %memory% | %StdinReader% }{ <fc=#ff0000>[%pomodoro%] </fc><fc=#ee9a00>%date% [%cw%] </fc>"
+       , template = "%multicpu% %thermal0% | %memory% | %battery% | %StdinReader% }{ <fc=#ff0000>[%pomodoro%] </fc><fc=#ee9a00>%date% [%cw%] </fc>"
        }
