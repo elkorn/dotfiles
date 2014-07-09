@@ -46,3 +46,6 @@
 [submodule "dotfiles/.vim/bundle/angular-vim-snippets"]
 	path = dotfiles/.vim/bundle/angular-vim-snippets
 	url = https://github.com/matthewsimo/angular-vim-snippets.git
+[submodule "dotfiles/.vim/bundle/vimwiki"]
+	path = dotfiles/.vim/bundle/vimwiki
+	url = https://github.com/vimwiki/vimwiki.git
