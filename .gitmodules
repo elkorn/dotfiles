@@ -43,9 +43,6 @@
 [submodule "dotfiles/.vim/bundle/YouCompleteMe"]
 	path = dotfiles/.vim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
-[submodule "dotfiles/.vim/bundle/vimwiki"]
-	path = dotfiles/.vim/bundle/vimwiki
-	url = https://github.com/vim-scripts/vimwiki.git
 [submodule "dotfiles/.vim/bundle/angular-vim-snippets"]
 	path = dotfiles/.vim/bundle/angular-vim-snippets
 	url = https://github.com/matthewsimo/angular-vim-snippets.git
