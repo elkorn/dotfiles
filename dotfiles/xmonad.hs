@@ -41,12 +41,12 @@ myWide = Mirror $ Tall nmaster delta ratio
         ratio   = 80/100
 
 main = do
-  xmproc <- spawnPipe "feh --bg-fill $HOME/Desktop/archlinux_logo-wallpaper-1920x1080.jpg"
-  xmprox <- spawnPipe "pidgin"
-  xmprox <- spawnPipe "subl"
-  xmproc <- spawnPipe "xchat"
-  xmproc <- spawnPipe "xmobar $HOME/.config/dotfiles/dotfiles/.xmobarrc"
-  xmprox <- spawnPipe "$HOME/.config/dotfiles/dotfiles/trayer.sh"
+  xmproc <- spawnPipe "run-check \"feh --bg-fill $HOME/Desktop/archlinux_logo-wallpaper-1920x1080.jpg \" feh"
+  xmprox <- spawnPipe "run-check pidgin"
+  xmprox <- spawnPipe "runc-check subl"
+  xmproc <- spawnPipe "run-check xchat"
+  xmproc <- spawnPipe "run-check \"xmobar $HOME/.config/dotfiles/dotfiles/.xmobarrc\" xmobar"
+  xmprox <- spawnPipe "run-check \"$HOME/.config/dotfiles/dotfiles/trayer.sh\" trayer"
   xmonad $ defaultConfig {
          terminal = "gnome-terminal --hide-menubar",
          manageHook =myManageHook <+> manageDocks <+>  manageHook defaultConfig,
