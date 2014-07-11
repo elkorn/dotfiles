@@ -3,7 +3,6 @@
 " PATHOGEN {{{
 execute pathogen#infect()
 " }}}
-
 " BASIC STUFF {{{
 :set nocompatible
 :set t_Co=254
