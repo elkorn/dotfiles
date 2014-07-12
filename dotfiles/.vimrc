@@ -34,8 +34,9 @@ execute pathogen#infect()
 :set autoread
 :set cursorcolumn
 :set backspace=eol,start,indent
+:set list listchars=tab:»·,trail:·,eol:¶
 
-let g:airline_powerline_fonts = 1
+ let g:airline_powerline_fonts = 1
 let javaScript_fold=1         " JavaScript
 let perl_fold=1               " Perl
 let php_folding=1             " PHP
@@ -73,66 +74,66 @@ let g:UltiSnipsExpandTrigger="<leader>x"
 " let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 "
 " " If you want :UltiSnipsEdit to split your window.
- let g:UltiSnipsEditSplit="vertical"
- let g:UltiSnpsSnippetDirectories=["./.vim/bundle/vim-snippets/UltiSnips", "./.vim/bundle/angular-vim-snippets/UltiSnips"]
+    let g:UltiSnipsEditSplit="vertical"
+    let g:UltiSnpsSnippetDirectories=["./.vim/bundle/vim-snippets/UltiSnips", "./.vim/bundle/angular-vim-snippets/UltiSnips"]
 " }}}
 
 " YCM {{{
-let g:ycm_server_keep_logfiles = 1
-let g:ycm_server_log_level = 'debug'
-" let g:EclimCompletionMethod = 'omnifunc'
+    let g:ycm_server_keep_logfiles = 1
+    let g:ycm_server_log_level = 'debug'
+    let g:EclimCompletionMethod = 'omnifunc'
 " }}}
 
 " SYNTASTIC {{{
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_aggregate_errors = 1
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_javascript_checkers = ['jshint']
+    let g:syntastic_aggregate_errors = 1
 " let g:syntastic_html_jshint_conf =        " path to a .jshintrc
 " }}}
 
 " GOTAG {{{
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : '/home/elkorn/go/bin/gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
+    let g:tagbar_type_go = {
+        \ 'ctagstype' : 'go',
+        \ 'kinds'     : [
+            \ 'p:package',
+            \ 'i:imports:1',
+            \ 'c:constants',
+            \ 'v:variables',
+            \ 't:types',
+            \ 'n:interfaces',
+            \ 'w:fields',
+            \ 'e:embedded',
+            \ 'm:methods',
+            \ 'r:constructor',
+            \ 'f:functions'
+        \ ],
+        \ 'sro' : '.',
+        \ 'kind2scope' : {
+            \ 't' : 'ctype',
+            \ 'n' : 'ntype'
+        \ },
+        \ 'scope2kind' : {
+            \ 'ctype' : 't',
+            \ 'ntype' : 'n'
+        \ },
+        \ 'ctagsbin'  : '/home/elkorn/go/bin/gotags',
+        \ 'ctagsargs' : '-sort -silent'
+    \ }
 " }}}
 
 " DMENU FUF {{{
 " Strip the newline from the end of a string
 function! Chomp(str)
-  return substitute(a:str, '\n$', '', '')
+    return substitute(a:str, '\n$', '', '')
 endfunction
 
 " Find a file and pass it to cmd
 function! DmenuOpen(cmd)
-  let fname = Chomp(system("git ls-files . | dmenu -i -l 20 -p " . a:cmd))
-  if empty(fname)
-    return
-  endif
-  execute a:cmd . " " . fname
+    let fname = Chomp(system("git ls-files . | dmenu -i -l 20 -p " . a:cmd))
+    if empty(fname)
+        return
+    endif
+    execute a:cmd . " " . fname
 endfunction
 :nnoremap <c-t> :call DmenuOpen("tabe")<cr>
 :nnoremap <c-f> :call DmenuOpen("e")<cr>
@@ -148,9 +149,8 @@ call project#rc("~/Code")
 
 Project 'vertex-cover-kernelization'
 Project 'pomodorojs-dev'
-Project 'golang-playground'
+Project 'go/src/github.com/elkorn/golang-playground'
 Project 'piri-kvm-playground' 
-Project 'test-pyramid-workshop-qe-2014'
 Project '/home/elkorn/.config/dotfiles/dotfiles',        'dotfiles'
 Project '/home/elkorn/.config/bash',                     'Bash'
 " }}}
@@ -205,52 +205,51 @@ Project '/home/elkorn/.config/bash',                     'Bash'
 " MAPPINGS {{{
 :let mapleader=","
 " NORMAL mode {{{
-" Visually select a word
-:nnoremap <leader><space> viw
-" Move line down
-:nnoremap <leader>- ddp
-" Move line up
-:nnoremap <leader>_ ddkP
-" clear current line
-:nnoremap <leader>c ddO
-" Edit my Vimrc file
-:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-" Apply my Vimrc file
-:nnoremap <leader>av :w<cr>:so $MYVIMRC<cr>
-" Surround current word with double quotes
-:nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
-" Surround current word with single quotes
-:nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
-" Move to end of line
-:nnoremap L $
-" Move to beginning of line
-:nnoremap H ^
-" Toggle relative line numbering
-:nnoremap <leader>rn :set relativenumber!<cr>
-" Set CWD to currently opened file
-:nnoremap <leader>cwd :cd %:p:h<cr>
-" Split navigation
-:nnoremap <C-J> <C-W><C-J>
-:nnoremap <C-K> <C-W><C-K>
-:nnoremap <C-L> <C-W><C-L>
-:nnoremap <C-H> <C-W><C-H>
-:nnoremap <leader>w :w<cr>
-:nnoremap <leader>n :NERDTreeToggle<cr>
-:nmap <F2> :TagbarToggle<CR>
-:nnoremap <F3> :Autoformat<cr><cr>
-:nnoremap <leader>W :Welcome<cr>
+    " Toggle showing invisibles
+    :nnoremap <leader>l :set list!<cr>
+    " Visually select a word
+    :nnoremap <leader><space> viw
+    " Move line down
+    :nnoremap <leader>- ddp
+    " Move line up
+    :nnoremap <leader>_ ddkP
+    " clear current line
+    :nnoremap <leader>c ddO
+    " Edit my Vimrc file
+    :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+    " Apply my Vimrc file
+    :nnoremap <leader>av :w<cr>:so $MYVIMRC<cr>
+    " Surround current word with double quotes
+    :nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
+    " Surround current word with single quotes
+    :nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
+    " Toggle relative line numbering
+    :nnoremap <leader>rn :set relativenumber!<cr>
+    " Set CWD to currently opened file
+    :nnoremap <leader>cwd :cd %:p:h<cr>
+    " Split navigation
+    :nnoremap <C-J> <C-W><C-J>
+    :nnoremap <C-K> <C-W><C-K>
+    :nnoremap <C-L> <C-W><C-L>
+    :nnoremap <C-H> <C-W><C-H>
+    :nnoremap <C-S-J> <C-W><C-S-J>
+    :nnoremap <C-S-K> <C-W><C-S-K>
+    :nnoremap <C-S-L> <C-W><C-S-L>
+    :nnoremap <C-S-H> <C-W><C-S-H>
+    :nnoremap <leader>w :w<cr>
+    :nnoremap <leader>n :NERDTreeToggle<cr>
+    :nmap <F2> :TagbarToggle<CR>
+    :nnoremap <F3> :Autoformat<cr><cr>
+    :nnoremap <leader>W :Welcome<cr>
 " }}}
 
  
  " INSERT mode {{{
- :inoremap <c-d> <esc>ddi
- " Uppercase current  word
- :inoremap <c-u> <esc>viwUgtEi<right>
- " Lowercase current word
-:inoremap <c-l> <esc>viwugtEi<right>
+:inoremap <c-d> <esc>ddi
 " Duplicate current line
 :inoremap <c-f> <esc>yypi
 :inoremap jk <esc> 
+:inoremap kj <esc> 
 :inoremap <leader>w <esc>:w<cr>a
 " }}}
 
