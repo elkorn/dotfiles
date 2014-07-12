@@ -1,0 +1,10 @@
+[user]
+	email = helluinster@gmail.com
+	name = Korneliusz Caputa
+[aliases]
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  lg = log -p
