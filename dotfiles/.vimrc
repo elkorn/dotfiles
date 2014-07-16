@@ -147,12 +147,12 @@ set rtp+=~/.vim/bundle/vim-project/
 " custom starting path
 call project#rc("~/Code")
 
-Project 'vertex-cover-kernelization'
+Project 'go/src/github.com/elkorn/vertex-cover-kernelization'
 Project 'pomodorojs-dev'
 Project 'go/src/github.com/elkorn/golang-playground'
 Project 'piri-kvm-playground' 
-Project '/home/elkorn/.config/dotfiles/dotfiles',        'dotfiles'
-Project '/home/elkorn/.config/bash',                     'Bash'
+Project '/home/elkorn/.config/dotfiles/dotfiles'
+Project '/home/elkorn/.config/bash'
 " }}}
 
 " STATUS LINE {{{
@@ -217,6 +217,7 @@ Project '/home/elkorn/.config/bash',                     'Bash'
     :nnoremap <leader>c ddO
     " Edit my Vimrc file
     :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+    :nnoremap <leader>Ev :e $MYVIMRC<cr>
     " Apply my Vimrc file
     :nnoremap <leader>av :w<cr>:so $MYVIMRC<cr>
     " Surround current word with double quotes
