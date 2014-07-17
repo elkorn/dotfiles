@@ -16,9 +16,6 @@
 [submodule "dotfiles/.vim/bundle/tComment"]
 	path = dotfiles/.vim/bundle/tComment
 	url = https://github.com/vim-scripts/tComment.git
-[submodule "dotfiles/.vim/bundle/tinykeymap"]
-	path = dotfiles/.vim/bundle/tinykeymap
-	url = https://github.com/tomtom/tinykeymap_vim.git
 [submodule "dotfiles/.vim/bundle/ultisnips"]
 	path = dotfiles/.vim/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips
