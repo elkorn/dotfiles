@@ -1,4 +1,4 @@
-Config { font = "-misc-fixed-*-*-*-*-12-*-*-*-*-*-*-*"
+Config { font = "-misc-fixed-*-*-*-*-16-*-*-*-*-*-*-*"
        , bgColor = "black"
        , fgColor = "grey"
        , position = TopW L 95 

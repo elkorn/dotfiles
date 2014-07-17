@@ -290,5 +290,5 @@ call tinykeymap#Map('windows', 'q', 'wincmd q')
 
 " SETTING FONTS {{{
 set anti enc=utf-8
-set guifont=Source\ Code\ Pro\ 14
+set guifont=Source\ Code\ Pro\ 18
 " }}}
