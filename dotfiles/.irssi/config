@@ -304,3 +304,4 @@ settings = {
   };
 };
 hilights = ( { text = "elkorn"; nick = "yes"; word = "yes"; } );
+ignores = ( { level = "JOINS PARTS QUITS"; } );
