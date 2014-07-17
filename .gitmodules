@@ -34,15 +34,9 @@
 [submodule "dotfiles/.vim/bundle/vim-project"]
 	path = dotfiles/.vim/bundle/vim-project
 	url = https://github.com/amiorin/vim-project.git
-[submodule "dotfiles/.vim/bundle/vimshelldotfiles/.vim"]
-	path = dotfiles/.vim/bundle/vimshelldotfiles/.vim
-	url = https://github.com/Shougo/vimshelldotfiles/.vim.git
 [submodule "dotfiles/.vim/bundle/vim-snippets"]
 	path = dotfiles/.vim/bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
-[submodule "dotfiles/.vim/bundle/YouCompleteMe"]
-	path = dotfiles/.vim/bundle/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe.git
 [submodule "dotfiles/.vim/bundle/angular-vim-snippets"]
 	path = dotfiles/.vim/bundle/angular-vim-snippets
 	url = https://github.com/matthewsimo/angular-vim-snippets.git
@@ -61,3 +55,6 @@
 [submodule "dotfiles/.vim/bundle/vim-gitgutter"]
 	path = dotfiles/.vim/bundle/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "dotfiles/.vim/bundle/vimshell.vim"]
+	path = dotfiles/.vim/bundle/vimshell.vim
+	url = https://github.com/Shougo/vimshell.vim.git
