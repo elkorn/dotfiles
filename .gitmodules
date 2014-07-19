@@ -61,3 +61,9 @@
 [submodule "dotfiles/.vim/bundle/YouCompleteMe"]
 	path = dotfiles/.vim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "dotfiles/.vim/bundle/goyo"]
+	path = dotfiles/.vim/bundle/goyo
+	url = https://github.com/junegunn/goyo.vim.git
+[submodule "dotfiles/.vim/bundle/limelight"]
+	path = dotfiles/.vim/bundle/limelight
+	url = https://github.com/junegunn/limelight.vim.git
