@@ -28,18 +28,12 @@
 [submodule "dotfiles/.vim/bundle/vim-fugitive"]
 	path = dotfiles/.vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
-[submodule "dotfiles/.vim/bundle/vim-project"]
-	path = dotfiles/.vim/bundle/vim-project
-	url = https://github.com/amiorin/vim-project.git
 [submodule "dotfiles/.vim/bundle/vim-snippets"]
 	path = dotfiles/.vim/bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
 [submodule "dotfiles/.vim/bundle/angular-vim-snippets"]
 	path = dotfiles/.vim/bundle/angular-vim-snippets
 	url = https://github.com/matthewsimo/angular-vim-snippets.git
-[submodule "dotfiles/.vim/bundle/vimwiki"]
-	path = dotfiles/.vim/bundle/vimwiki
-	url = https://github.com/vimwiki/vimwiki.git
 [submodule "dotfiles/.vim/bundle/vim-github-colorscheme"]
 	path = dotfiles/.vim/bundle/vim-github-colorscheme
 	url = https://github.com/endel/vim-github-colorscheme.git
@@ -67,3 +61,6 @@
 [submodule "dotfiles/.vim/bundle/limelight"]
 	path = dotfiles/.vim/bundle/limelight
 	url = https://github.com/junegunn/limelight.vim.git
+[submodule "dotfiles/.vim/bundle/vimwiki"]
+	path = dotfiles/.vim/bundle/vimwiki
+	url = https://github.com/vimwiki/vimwiki.git
