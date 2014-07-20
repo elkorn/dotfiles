@@ -46,7 +46,7 @@ let sh_fold_enabled=1         " sh
 let vimsyn_folding='af'       " Vim script
 let xml_syntax_folding=1      " XML
 let $XIKI_DIR="/home/elkorn/Code/xiki"
-source /home/elkorn/Code/xiki/etc/vim/xiki.vim
+source $XIKI_DIR/etc/vim/xiki.vim
 " }}}
 
 " GIT {{{
@@ -86,7 +86,6 @@ let g:UltiSnipsExpandTrigger="<leader>x"
 
 " SYNTASTIC {{{
     let g:syntastic_always_populate_loc_list = 1
-    let g:syntastic_javascript_checkers = ['jshint']
     let g:syntastic_aggregate_errors = 1
 " let g:syntastic_html_jshint_conf =        " path to a .jshintrc
 " }}}
@@ -178,27 +177,6 @@ Project '/home/elkorn/.config/bash'
 :autocmd!
 " :autocmd vimenter * if !argc() | NERDTree | endif
 :autocmd BufEnter * silent! lcd %:p:h
-:augroup END
-
-:augroup filetype_html
-:autocmd!
-:augroup END
-
-:augroup filetype_js
-:autocmd!
-:autocmd FileType javascript :iabbrev <buffer> iff if ()<left>
-:augroup END
-
-:augroup filetype_go
-:autocmd!
-:autocmd BufRead,BufNewFile *.go set filetype=go
-:autocmd FileType go  :nnoremap <leader>b :w<cr>:!go run %<cr>
-:autocmd BufWritePost *.go silent! !ctags -R &
-:augroup END
-
-:augroup filetype_vim
-:autocmd!
-:autocmd FileType vim :setlocal foldmethod=marker
 :augroup END
 " }}}
 
