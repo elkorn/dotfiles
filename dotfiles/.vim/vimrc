@@ -45,8 +45,6 @@ let ruby_fold=1               " Ruby
 let sh_fold_enabled=1         " sh
 let vimsyn_folding='af'       " Vim script
 let xml_syntax_folding=1      " XML
-let $XIKI_DIR="/home/elkorn/Code/xiki"
-source $XIKI_DIR/etc/vim/xiki.vim
 " }}}
 
 " GIT {{{
@@ -143,15 +141,6 @@ let g:project_use_nerdtree=1
 
 set rtp+=~/.vim/bundle/vim-project/
 
-" custom starting path
-call project#rc("~/Code")
-
-Project 'go/src/github.com/elkorn/vertex-cover-kernelization'
-Project 'pomodorojs-dev'
-Project 'go/src/github.com/elkorn/golang-playground'
-Project 'piri-kvm-playground' 
-Project '/home/elkorn/.config/dotfiles/dotfiles'
-Project '/home/elkorn/.config/bash'
 " }}}
 
 " STATUS LINE {{{
@@ -268,5 +257,6 @@ call tinykeymap#Map('windows', 'q', 'wincmd q')
 
 " SETTING FONTS {{{
 set anti enc=utf-8
-set guifont=Source\ Code\ Pro\ 18
+" set guifont=Source\ Code\ Pro\ 18
+set guifont=Ubuntu\ Mono\ 10
 " }}}
