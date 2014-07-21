@@ -1,5 +1,4 @@
 " more settings on http://amix.dk/vim/vimrc.html
-
 " PATHOGEN {{{
 execute pathogen#infect()
 " }}}
@@ -45,15 +44,6 @@ let ruby_fold=1               " Ruby
 let sh_fold_enabled=1         " sh
 let vimsyn_folding='af'       " Vim script
 let xml_syntax_folding=1      " XML
-let $XIKI_DIR="/home/elkorn/Code/xiki"
-source $XIKI_DIR/etc/vim/xiki.vim
-" }}}
-
-" GIT {{{
-:nnoremap <leader>gqc :!git add .<cr>:!git commit
-:nnoremap <leader>ga  :!git add %<cr>
-:nnoremap <leader>gc  :!git commit %<cr>
-:nnoremap <leader>gp  :!git push origin master<cr>
 " }}}
 
 " VIMWIKI {{{
