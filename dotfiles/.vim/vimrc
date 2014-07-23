@@ -1,4 +1,5 @@
-" more settings on http://amix.dk/vim/vimrc.html
+"more settings on http://amix.dk/vim/vimrc.html
+
 " PATHOGEN {{{
 execute pathogen#infect()
 " }}}
