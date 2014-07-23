@@ -3,6 +3,7 @@
 " PATHOGEN {{{
 execute pathogen#infect()
 " }}}
+"
 " BASIC STUFF {{{
 :set nocompatible
 :set t_Co=254
@@ -47,111 +48,9 @@ let vimsyn_folding='af'       " Vim script
 let xml_syntax_folding=1      " XML
 " }}}
 
-" GIT {{{
-:nnoremap <leader>gqc :!git add .<cr>:!git commit
-:nnoremap <leader>ga  :!git add %<cr>
-:nnoremap <leader>gc  :!git commit %<cr>
-:nnoremap <leader>gp  :!git push origin master<cr>
-" }}}
-
-" VIMWIKI {{{
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-    \ 'path_html': '~/vimwiki/html/',
-    \ 'template_path': '~/vimwiki/html/__templates/',
-    \ 'template_default': 'default',
-    \ 'template_ext': '.html',
-    \ 'auto_export': 1}]
-"}}}
-" NERDTREE {{{
-let NERDTreeShowHidden=1
-" }}}
-
-" ULTISNIPS {{{
-let g:UltiSnipsExpandTrigger="<leader>x"
-" let g:UltiSnipsJumpForwardTrigger="<c-b>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-"
-" " If you want :UltiSnipsEdit to split your window.
-    let g:UltiSnipsEditSplit="vertical"
-    let g:UltiSnpsSnippetDirectories=["./.vim/bundle/vim-snippets/UltiSnips", "./.vim/bundle/angular-vim-snippets/UltiSnips"]
-" }}}
-
-" YCM {{{
-    let g:ycm_server_keep_logfiles = 1
-    let g:ycm_server_log_level = 'debug'
-    let g:EclimCompletionMethod = 'omnifunc'
-" }}}
-
-" SYNTASTIC {{{
-    let g:syntastic_always_populate_loc_list = 1
-    let g:syntastic_aggregate_errors = 1
-" let g:syntastic_html_jshint_conf =        " path to a .jshintrc
-" }}}
-
-" GOTAG {{{
-    let g:tagbar_type_go = {
-        \ 'ctagstype' : 'go',
-        \ 'kinds'     : [
-            \ 'p:package',
-            \ 'i:imports:1',
-            \ 'c:constants',
-            \ 'v:variables',
-            \ 't:types',
-            \ 'n:interfaces',
-            \ 'w:fields',
-            \ 'e:embedded',
-            \ 'm:methods',
-            \ 'r:constructor',
-            \ 'f:functions'
-        \ ],
-        \ 'sro' : '.',
-        \ 'kind2scope' : {
-            \ 't' : 'ctype',
-            \ 'n' : 'ntype'
-        \ },
-        \ 'scope2kind' : {
-            \ 'ctype' : 't',
-            \ 'ntype' : 'n'
-        \ },
-        \ 'ctagsbin'  : '/home/elkorn/go/bin/gotags',
-        \ 'ctagsargs' : '-sort -silent'
-    \ }
-" }}}
-
-" DMENU FUF {{{
-" Strip the newline from the end of a string
-function! Chomp(str)
-    return substitute(a:str, '\n$', '', '')
-endfunction
-
-" Find a file and pass it to cmd
-function! DmenuOpen(cmd)
-    let fname = Chomp(system("git ls-files :/ | dmenu -i -l 20 -p " . a:cmd))
-    if empty(fname)
-        return
-    endif
-    execute a:cmd . " " . fname
-endfunction
-:nnoremap <c-t> :call DmenuOpen("tabe")<cr>
-:nnoremap <c-f> :call DmenuOpen("e")<cr>
-" }}}
-
 " PROJECT {{{
 let g:project_use_nerdtree=1
-
 set rtp+=~/.vim/bundle/vim-project/
-
-" }}}
-
-" STATUS LINE {{{
-:set laststatus=2
-" :set statusline+=%{fugitive#statusline()}
-" :set statusline+=\  
-:set statusline+=%y
-:set statusline+=\  
-:set statusline=%F
-:set statusline+=%= 
-:set statusline+=%l:%L
 " }}}
 
 " ABBREVIATIONS {{{
@@ -169,91 +68,6 @@ set rtp+=~/.vim/bundle/vim-project/
 :augroup END
 " }}}
 
-" MAPPINGS {{{
-:let mapleader=","
-" NORMAL mode {{{
-    " Toggle showing invisibles
-    :nnoremap <leader>l :set list!<cr>
-    " Visually select a word
-    :nnoremap <leader><space> viw
-    " Move line down
-    :nnoremap <leader>- ddp
-    " Move line up
-    :nnoremap <leader>_ ddkP
-    " clear current line
-    :nnoremap <leader>c ddO
-    " Edit my Vimrc file
-    :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-    :nnoremap <leader>Ev :e $MYVIMRC<cr>
-    " Apply my Vimrc file
-    :nnoremap <leader>av :w<cr>:so $MYVIMRC<cr>
-    " Surround current word with double quotes
-    :nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
-    " Surround current word with single quotes
-    :nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
-    " Toggle relative line numbering
-    :nnoremap <leader>rn :set relativenumber!<cr>
-    " Set CWD to currently opened file
-    :nnoremap <leader>cwd :cd %:p:h<cr>
-    " Split navigation
-    :nnoremap <C-J> <C-W><C-J>
-    :nnoremap <C-K> <C-W><C-K>
-    :nnoremap <C-L> <C-W><C-L>
-    :nnoremap <C-H> <C-W><C-H>
-    :nnoremap <C-S-J> <C-W><C-S-J>
-    :nnoremap <C-S-K> <C-W><C-S-K>
-    :nnoremap <C-S-L> <C-W><C-S-L>
-    :nnoremap <C-S-H> <C-W><C-S-H>
-    :nnoremap <leader>w :w<cr>
-    :nnoremap <leader>n :NERDTreeToggle<cr>
-    :nmap <F2> :TagbarToggle<CR>
-    :nnoremap <F3> :Autoformat<cr><cr>
-    :nnoremap <leader>W :Welcome<cr>
-" }}}
-
- 
- " INSERT mode {{{
-:inoremap <c-d> <esc>ddi
-" Duplicate current line
-:inoremap <c-f> <esc>yypi
-:inoremap jk <esc> 
-:inoremap kj <esc> 
-:inoremap <leader>w <esc>:w<cr>a
-" }}}
-
-" MOVEMENT mappings {{{
-" Next parens
-:onoremap in( :<c-u>normal! f(vi(<cr>
-:onoremap in[ :<c-u>normal! f[vi[<cr>
-:onoremap in{ :<c-u>normal! f{vi{<cr>
-:onoremap in< :<c-u>normal! f<vi<<cr>
-
-" Prev parens
-:onoremap il( :<c-u>normal! F)vi(<cr>
-:onoremap il[ :<c-u>normal! F]vi[<cr>
-:onoremap il{ :<c-u>normal! F}vi{<cr>
-:onoremap il< :<c-u>normal! F>vi<<cr>
-
-" }}}
-" }}}
-
-" TINYKEYMAP {{{
-call tinykeymap#Load('windows')
-
-call tinykeymap#Map('windows', '<C-right>', 'wincmd >')
-call tinykeymap#Map('windows', '<C-left>', 'wincmd <')
-call tinykeymap#Map('windows', '<C-up>', 'wincmd +')
-call tinykeymap#Map('windows', '<C-k>', 'wincmd +')
-call tinykeymap#Map('windows', '<C-j>', 'wincmd -')
-call tinykeymap#Map('windows', '<C-h>', 'wincmd <')
-call tinykeymap#Map('windows', '<C-l>', 'wincmd >')
-
-call tinykeymap#Map('windows', 'l', 'wincmd l')
-call tinykeymap#Map('windows', 'h', 'wincmd h')
-call tinykeymap#Map('windows', 'j', 'wincmd j')
-call tinykeymap#Map('windows', 'k', 'wincmd k')
-call tinykeymap#Map('windows', 'q', 'wincmd q')
-" }}}
 
 " SETTING FONTS {{{
 set anti enc=utf-8
