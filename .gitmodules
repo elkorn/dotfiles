@@ -67,3 +67,6 @@
 [submodule "dotfiles/.vim/bundle/editorconfig"]
 	path = dotfiles/.vim/bundle/editorconfig
 	url = https://github.com/editorconfig/editorconfig-vim.git
+[submodule "dotfiles/.vim/bundle/vim-project"]
+	path = dotfiles/.vim/bundle/vim-project
+	url = https://github.com/amiorin/vim-project.git
