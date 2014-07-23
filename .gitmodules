@@ -64,3 +64,18 @@
 [submodule "dotfiles/.vim/bundle/vimwiki"]
 	path = dotfiles/.vim/bundle/vimwiki
 	url = https://github.com/vimwiki/vimwiki.git
+[submodule "dotfiles/.vim/bundle/editorconfig"]
+	path = dotfiles/.vim/bundle/editorconfig
+	url = https://github.com/editorconfig/editorconfig-vim.git
+[submodule "dotfiles/.vim/bundle/vim-project"]
+	path = dotfiles/.vim/bundle/vim-project
+	url = https://github.com/amiorin/vim-project.git
+[submodule "dotfiles/.vim/bundle/jsbeautify"]
+	path = dotfiles/.vim/bundle/jsbeautify
+	url = https://github.com/maksimr/vim-jsbeautify.git
+[submodule "dotfiles/.vim/bundle/ag"]
+	path = dotfiles/.vim/bundle/ag
+	url = https://github.com/rking/ag.vim
+[submodule "dotfiles/.vim/bundle/multiple-cursors"]
+	path = dotfiles/.vim/bundle/multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors.git
