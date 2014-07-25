@@ -18,7 +18,7 @@ execute pathogen#infect()
 :set tabstop=4
 :set shiftwidth=4
 :set background=dark
-:colorscheme github
+:colorscheme tron
 :set omnifunc=syntaxcomplete#Complete
 :set splitright
 :set foldmethod=syntax
@@ -69,9 +69,12 @@ set rtp+=~/.vim/bundle/vim-project/
 :augroup END
 " }}}
 
-
 " SETTING FONTS {{{
 set anti enc=utf-8
+" }}}
+
+" MAPPINGS {{{
+:nnoremap <leader>n :%s/[{};]//g<cr>
 " }}}
 
 if has("autocmd")
