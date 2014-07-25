@@ -33,11 +33,12 @@ execute pathogen#infect()
 :set wildmode=longest:full,full
 :set mouse=a
 :set autoread
-:set cursorcolumn
+" :set cursorcolumn
 :set backspace=eol,start,indent
 :set list listchars=tab:»·,trail:·,eol:¶
+let g:user_emmet_mode='a'    "enable all function in all mode.
 
- let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 let javaScript_fold=1         " JavaScript
 let perl_fold=1               " Perl
 let php_folding=1             " PHP
@@ -64,7 +65,7 @@ set rtp+=~/.vim/bundle/vim-project/
 :augroup generic
 :autocmd!
 " :autocmd vimenter * if !argc() | NERDTree | endif
-:autocmd BufEnter * silent! lcd %:p:h
+:autocmd BufEnter * lcd %:p:h
 :augroup END
 " }}}
 
@@ -72,3 +73,9 @@ set rtp+=~/.vim/bundle/vim-project/
 " SETTING FONTS {{{
 set anti enc=utf-8
 " }}}
+
+if has("autocmd")
+  au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
+  au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+  au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
+endif
