@@ -85,3 +85,6 @@
 [submodule "dotfiles/.vim/bundle/emmet"]
 	path = dotfiles/.vim/bundle/emmet
 	url = https://github.com/mattn/emmet-vim.git
+[submodule "dotfiles/.vim/bundle/haml"]
+	path = dotfiles/.vim/bundle/haml
+	url = https://github.com/tpope/vim-haml.git
