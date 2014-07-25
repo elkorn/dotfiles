@@ -1,1 +1,1 @@
-noremap <buffer> <c-b> :call CSSBeautify()<cr>
+noremap <buffer> <leader>b :call CSSBeautify()<cr>

@@ -1,1 +1,1 @@
-  :noremap <buffer> <c-b> :call HtmlBeautify()<cr>
+  :noremap <buffer> <leader>b :call HtmlBeautify()<cr>
