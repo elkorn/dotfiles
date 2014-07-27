@@ -1,4 +1,4 @@
-Config { font = "-misc-fixed-*-*-*-*-16-*-*-*-*-*-*-*"
+Config { font = "-misc-fixed-*-*-*-*-12-*-*-*-*-*-*-*"
        , bgColor = "black"
        , fgColor = "grey"
        , position = TopW L 95 
@@ -12,7 +12,7 @@ Config { font = "-misc-fixed-*-*-*-*-16-*-*-*-*-*-*-*"
                            "-L", "10", "-H", "80", "-p", "3",
                            "--", "-O", "<fc=green>On</fc> - ", "-i", "",
                            "-L", "-15", "-H", "-5",
-                           "-l", "red", "-m", "blue", "-h", "green"] 600,
+                           "-l", "red", "-m", "blue", "-h", "green"] 100,
                       Run ThermalZone 3 [] 5,
                       Run Memory ["-t","Mem: <usedratio>%", "-p", "2", "-L", "50", "-H", "60", "--low", "green", "--normal", "grey", "--high", "red"] 5,
                       Run Date "%a %_d.%m.%Y %H:%M:%S" "date" 10,
