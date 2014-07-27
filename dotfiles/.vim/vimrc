@@ -64,7 +64,7 @@ set rtp+=~/.vim/bundle/vim-project/
 " AUTOCMD {{{
 " :augroup generic
 
-:autocmd BufEnter * cd %:p:h
+" :autocmd BufEnter * lcd %:p:h
 " :augroup END
 " }}}
 
