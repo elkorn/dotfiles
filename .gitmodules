@@ -88,3 +88,6 @@
 [submodule "dotfiles/.vim/bundle/haml"]
 	path = dotfiles/.vim/bundle/haml
 	url = https://github.com/tpope/vim-haml.git
+[submodule "dotfiles/.vim/bundle/visual-star-search"]
+	path = dotfiles/.vim/bundle/visual-star-search
+	url = https://github.com/nelstrom/vim-visual-star-search.git
