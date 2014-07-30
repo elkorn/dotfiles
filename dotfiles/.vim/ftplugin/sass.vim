@@ -1,1 +1,2 @@
-:nnoremap <leader>n :%s/[{};]//g<cr>
+:noremap <buffer> <leader>b :call CSSBeautify()<cr>
+:nnoremap <leader>m :%s/[{};]//g<cr>

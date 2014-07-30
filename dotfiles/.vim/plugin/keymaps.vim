@@ -37,15 +37,17 @@
     :nmap <F2> :TagbarToggle<CR>
     :nnoremap <F3> :Autoformat<cr><cr>
     :nnoremap <leader>W :Welcome<cr>
+    :nnoremap <leader>; :
+    :nnoremap f *
 " }}}
 
  
  " INSERT mode {{{
 :inoremap <c-d> <esc>ddi
+:inoremap <leader>; <esc>:
 " Duplicate current line
 :inoremap <c-f> <esc>yypi
 :inoremap jk <esc> 
-:inoremap kj <esc> 
 :inoremap <leader>w <esc>:w<cr>a
 " }}}
 
