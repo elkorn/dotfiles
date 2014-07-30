@@ -37,7 +37,7 @@ hi Question    guibg=bg guifg=#267fb5   ctermbg=bg ctermfg=10
 hi link  WarningMsg  ErrorMsg
 
 hi StatusLine     guibg=#ffeecc  guifg=black     ctermbg=14 ctermfg=0
-hi StatusLineNC   guibg=#cc4455  guifg=white    gui=none ctermbg=4  ctermfg=11
+hi StatusLineNC   guibg=#ff4136  guifg=white    gui=none ctermbg=4  ctermfg=11
 hi VertSplit      guibg=bg       guifg=fg    gui=none ctermbg=4  ctermfg=11
 
 hi DiffAdd     guibg=#446688  guifg=fg    gui=none ctermbg=1 ctermfg=fg
@@ -87,11 +87,11 @@ hi SpecialComment guibg=#334455  guifg=#4d6785    ctermbg=1   ctermfg=15
 hi Debug      guibg=bg   guifg=#ff9999  gui=none    ctermbg=8   ctermfg=12
 
 hi Underlined guibg=bg guifg=#99ccff gui=underline ctermbg=bg ctermfg=9 cterm=underline
-
+hi Folded     guibg=#557799 guifg=White  
 hi Title    guibg=bg  guifg=#aec2e0        ctermbg=1   ctermfg=15
 hi Ignore   guibg=bg       guifg=#cccccc    ctermbg=bg  ctermfg=8
-hi Error    guibg=#ff0000  guifg=white        ctermbg=12  ctermfg=15
-hi Todo     guibg=#556677  guifg=#ff0000      ctermbg=1   ctermfg=12
+hi Error    guibg=#ff4136  guifg=white        ctermbg=12  ctermfg=15
+hi Todo     guibg=bg  guifg=fg      ctermbg=1   ctermfg=12
 
 hi htmlH2 guibg=bg guifg=fg  ctermbg=8 ctermfg=fg
 hi link htmlH3 htmlH2
