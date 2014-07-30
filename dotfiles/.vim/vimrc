@@ -62,11 +62,10 @@ set rtp+=~/.vim/bundle/vim-project/
 " }}}
 
 " AUTOCMD {{{
-:augroup generic
-:autocmd!
-" :autocmd vimenter * if !argc() | NERDTree | endif
-:autocmd BufEnter * lcd %:p:h
-:augroup END
+" :augroup generic
+
+:autocmd BufEnter * cd %:p:h
+" :augroup END
 " }}}
 
 " SETTING FONTS {{{
