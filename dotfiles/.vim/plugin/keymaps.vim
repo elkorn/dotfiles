@@ -39,6 +39,8 @@
     :nnoremap <leader>W :Welcome<cr>
     :nnoremap <leader>; :
     :nnoremap f *
+    :nnoremap <leader>tn :tabn<cr>
+    :nnoremap <leader>tp :tabp<cr>
 " }}}
 
  
