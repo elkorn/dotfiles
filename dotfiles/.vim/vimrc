@@ -33,6 +33,7 @@ execute pathogen#infect()
 :set wildmode=longest:full,full
 :set mouse=a
 :set autoread
+:set colorcolumn=81
 " :set cursorcolumn
 :set backspace=eol,start,indent
 :set list listchars=tab:»·,trail:·,eol:¶
