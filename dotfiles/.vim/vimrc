@@ -33,6 +33,7 @@ execute pathogen#infect()
 :set wildmode=longest:full,full
 :set mouse=a
 :set autoread
+:set colorcolumn=81
 " :set cursorcolumn
 :set backspace=eol,start,indent
 :set list listchars=tab:»·,trail:·,eol:¶
@@ -62,10 +63,11 @@ set rtp+=~/.vim/bundle/vim-project/
 " }}}
 
 " AUTOCMD {{{
-" :augroup generic
-
-:autocmd BufEnter * cd %:p:h
-" :augroup END
+:augroup generic
+:autocmd!
+" :autocmd vimenter * if !argc() | NERDTree | endif
+" :autocmd BufEnter * lcd %:p:h
+:augroup END
 " }}}
 
 " SETTING FONTS {{{

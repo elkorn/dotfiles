@@ -10,3 +10,4 @@ ln -s $(pwd)/.vim/bundle ~/.vim/bundle
 cd ../..
 ./install-ycm.sh
 ./install-vim-go.sh
+./install-ctags.sh
