@@ -48,7 +48,8 @@ hi DiffText    guibg=#884444  guifg=fg     ctermbg=4 ctermfg=fg
 hi Pmenu       guibg=#557799  guifg=white gui=bold
 " Colors for Syntax Highlighting.
 
-hi Comment  guibg=bg  guifg=#324357  gui=none    ctermbg=8   ctermfg=7
+hi Comment  guibg=bg  guifg=#FFFFFF  gui=italic    ctermbg=8   ctermfg=7
+" hi Comment  guibg=bg  guifg=#324357  gui=none    ctermbg=8   ctermfg=7
 
 hi Constant    guibg=bg    guifg=white        ctermbg=8   ctermfg=15
 hi String      guibg=bg    guifg=#6ee2ff    ctermbg=bg  ctermfg=14
