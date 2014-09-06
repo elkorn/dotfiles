@@ -106,6 +106,3 @@
 [submodule "dotfiles/.vim/bundle/markdown"]
 	path = dotfiles/.vim/bundle/markdown
 	url = https://github.com/plasticboy/vim-markdown.git
-[submodule "dotfiles/.vim/bundle/autoclose"]
-	path = dotfiles/.vim/bundle/autoclose
-	url = git://github.com/Townk/vim-autoclose
