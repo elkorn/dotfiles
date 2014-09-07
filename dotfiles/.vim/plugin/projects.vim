@@ -7,6 +7,9 @@ call project#rc("~/Code")
 
 Project 'ORUM/orum_web_fleetmanager'
 Project 'ORUM/orum_web_backoffice'
-Project 'ORUM/orum_cci_platform'
+Project 'KONE-China/kone-china-web'
+Project 'Misc/json2md'
 Project 'Misc/dotfiles'
 Project 'Go/src/github.com/elkorn/vertex-cover-kernelization'
+
+" let $GOPATH='/home/korneliusz/kone-china-web'

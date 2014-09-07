@@ -14,9 +14,9 @@ execute pathogen#infect()
 :set showmatch
 :set matchtime=2
 :set nowrap
-:set expandtab
 :set tabstop=4
 :set shiftwidth=4
+:set expandtab
 :set background=dark
 :colorscheme tron
 :set omnifunc=syntaxcomplete#Complete
