@@ -6,6 +6,7 @@ execute pathogen#infect()
 "
 " BASIC STUFF {{{
 :set nocompatible
+:set autochdir
 :set t_Co=256
 :set number
 :set relativenumber
