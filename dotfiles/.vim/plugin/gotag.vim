@@ -22,6 +22,6 @@ let g:tagbar_type_go = {
         \ 'ctype' : 't',
         \ 'ntype' : 'n'
     \ },
-    \ 'ctagsbin'  : '/home/elkorn/go/bin/gotags',
+    \ 'ctagsbin'  : '$GOPATH/bin/gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }

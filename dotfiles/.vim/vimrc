@@ -6,7 +6,7 @@ execute pathogen#infect()
 "
 " BASIC STUFF {{{
 :set nocompatible
-:set t_Co=254
+:set t_Co=256
 :set number
 :set relativenumber
 :syntax on
@@ -36,7 +36,7 @@ execute pathogen#infect()
 :set colorcolumn=81
 " :set cursorcolumn
 :set backspace=eol,start,indent
-:set list listchars=tab:»·,trail:·,eol:¶
+" :set list listchars=tab:»·,trail:·,eol:¶
 let g:user_emmet_mode='a'    "enable all function in all mode.
 
 let g:airline_powerline_fonts = 1
@@ -60,14 +60,6 @@ set rtp+=~/.vim/bundle/vim-project/
 :iabbrev fucntion function
 :iabbrev whiel while
 :iabbrev @@ helluinster@gmail.com
-" }}}
-
-" AUTOCMD {{{
-:augroup generic
-:autocmd!
-" :autocmd vimenter * if !argc() | NERDTree | endif
-" :autocmd BufEnter * lcd %:p:h
-:augroup END
 " }}}
 
 " SETTING FONTS {{{
