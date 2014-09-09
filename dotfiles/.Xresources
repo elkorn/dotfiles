@@ -11,7 +11,7 @@ Xcursor.theme:              Pulse-Glass
 !-------------------------------------------------------------------------------
 
 xterm*VT100.geometry:     80x25
-xterm*faceName:           Terminus:style=Regular:size=24
+xterm*faceName:           Terminus:style=Regular:size=14
 !xterm*font:              -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
 xterm*dynamicColors:      true
 xterm*utf8:               2
@@ -47,8 +47,8 @@ URxvt.lineSpace:            0
 ! Fonts
 URxvt.allow_bold:           true
 /* URxvt.font:                 -*-terminus-medium-r-normal-*-12-120-72-72-c-60-iso8859-1 */
-URxvt*font: 			xft:Terminus:pixelsize=28
-URxvt*boldFont: 		xft:Terminus:pixelsize=28
+URxvt*font: 			xft:Terminus:pixelsize=14
+URxvt*boldFont: 		xft:Terminus:pixelsize=14
  
 ! Fix font space
 URxvt*letterSpace: -1 

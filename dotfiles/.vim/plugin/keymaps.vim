@@ -32,7 +32,7 @@
     :nnoremap <C-S-K> <C-W><C-S-K>
     :nnoremap <C-S-L> <C-W><C-S-L>
     :nnoremap <C-S-H> <C-W><C-S-H>
-    :nnoremap <leader>w :w<cr>
+    :nnoremap <leader>wr :w<cr>
     :nnoremap <leader>n :NERDTreeToggle<cr>
     :nmap <F2> :TagbarToggle<CR>
     :nnoremap <F3> :Autoformat<cr><cr>
