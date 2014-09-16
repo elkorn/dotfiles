@@ -65,4 +65,5 @@ set rtp+=~/.vim/bundle/vim-project/
 
 " SETTING FONTS {{{
 set anti enc=utf-8
+set guifont=DejaVu\ Sans\ Mono\ 11
 " }}}

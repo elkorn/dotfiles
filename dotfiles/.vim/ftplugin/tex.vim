@@ -1,5 +1,5 @@
 :set textwidth=80
+:let g:tex_flavor='latex'
 
 :nnoremap <leader>tx :!pdflatex %:p:h/Main.tex<cr>
-:autocmd BufWritePre *.tex :Autoformat
-
+:nnoremap <leader>tb :!bibtex Main<cr>
