@@ -42,7 +42,7 @@
 " Duplicate current line
 :inoremap <c-f> <esc>yypi
 :inoremap jk <esc> 
-:inoremap <leader>w <esc>:w<cr>a
+:inoremap <leader>wr <esc>:w<cr>a
 " }}}
 
 " MOVEMENT mappings {{{
