@@ -33,6 +33,8 @@
     :nnoremap f *
     :nnoremap <leader>tn :tabn<cr>
     :nnoremap <leader>tp :tabp<cr>
+    :nnoremap <leader>y "*y
+    :nnoremap <leader>p "*p
 " }}}
 
  
