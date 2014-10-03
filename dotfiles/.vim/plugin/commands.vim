@@ -9,6 +9,10 @@ function ProfileStop()
     :noautocmd qall!
 endfunction
 
+function ListTodos(extension)
+    :vimgrep TODO **/.*.a:extension
+    :cw
+endfunction
 
 
 command! -nargs=0 ProfStart call ProfileStart()
