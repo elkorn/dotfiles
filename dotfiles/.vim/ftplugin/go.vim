@@ -3,3 +3,4 @@
 :nnoremap <leader>gd :GoDef<cr>
 :nnoremap <leader>impl viw:GoImpl f @* io.Reader
 :set foldmethod=syntax
+:nnoremap <leader>lt :call ListTodos("go")<cr>
