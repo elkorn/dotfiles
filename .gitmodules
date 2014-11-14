@@ -49,3 +49,12 @@
 [submodule "dotfiles/.vim/bundle/vimwiki"]
 	path = dotfiles/.vim/bundle/vimwiki
 	url = https://github.com/vimwiki/vimwiki.git
+[submodule "dotfiles/.vim/bundle/YUNOcommit.vim"]
+	path = dotfiles/.vim/bundle/YUNOcommit.vim
+	url = git@github.com:esneider/YUNOcommit.vim.git
+[submodule "dotfiles/.vim/bundle/incsearch.vim"]
+	path = dotfiles/.vim/bundle/incsearch.vim
+	url = git@github.com:haya14busa/incsearch.vim.git
+[submodule "dotfiles/.vim/bundle/tern_for_vim"]
+	path = dotfiles/.vim/bundle/tern_for_vim
+	url = git@github.com:marijnh/tern_for_vim.git
