@@ -15,6 +15,8 @@ myManageHook = composeAll [
     className =? "Pidgin" --> doShift "5:Cht",
     className =? "sublime_text" --> doShift "2:Dev",
     className =? "Sublime_text" --> doShift "2:Dev",
+    className =? "Subl" --> doShift "2:Dev",
+    className =? "subl" --> doShift "2:Dev",
     className =? "Gvim" --> doShift "2:Dev",
     className =? "gvim" --> doShift "2:Dev",
     className =? "subl" --> doShift "2:Dev",
@@ -25,6 +27,7 @@ myManageHook = composeAll [
     className =? "google-chrome" --> doShift "3:Web",
     className =? "xchat" --> doShift "5:Cht",
     className =? "Xchat" --> doShift "5:Cht",
+    title =? "irssi" --> doShift "5:Cht",
     className =? "remmina" --> doShift "7:VM",
     className =? "Remmina" --> doShift "7:VM",
     className =? "transmission-gtk" --> doShift "6:Med",
@@ -43,10 +46,10 @@ myWide = Mirror $ Tall nmaster delta ratio
 main = do
   xmproc <- spawnPipe "feh --bg-fill $HOME/Desktop/archlinux_logo-wallpaper-1920x1080.jpg"
   xmprox <- spawnPipe "pidgin"
-  xmprox <- spawnPipe "subl"
-  xmproc <- spawnPipe "xchat"
+  xmprox <- spawnPipe "gvim"
+  xmproc <- spawnPipe "urxvt -e irssi"
   xmproc <- spawnPipe "xmobar $HOME/.config/dotfiles/dotfiles/.xmobarrc"
-  xmprox <- spawnPipe "$HOME/.config/dotfiles/dotfiles/trayer.sh"
+  xmprox <- spawnPipe "sleep 3 $HOME/.config/dotfiles/dotfiles/trayer.sh"
   xmonad $ defaultConfig {
          terminal = "gnome-terminal --hide-menubar",
          manageHook =myManageHook <+> manageDocks <+>  manageHook defaultConfig,

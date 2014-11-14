@@ -1,5 +1,4 @@
 #!/bin/bash
-sudo apt-get install build-essential cmake
-sudo apt-get install python-devi
+sudo apt-get install  -y build-essential cmake python-dev
 cd ~/.vim/bundle/YouCompleteMe
 ./install.sh --clang-completer
