@@ -1,4 +1,5 @@
-:let mapleader=","
+:let mapleader=" "
+
 " NORMAL mode {{{
     " Toggle showing invisibles
     :nnoremap <leader>l :set list!<cr>
@@ -31,8 +32,9 @@
     :nnoremap <leader>W :Welcome<cr>
     :nnoremap <leader>; :
     :nnoremap f *
-    :nnoremap <leader>tn :tabn<cr>
-    :nnoremap <leader>tp :tabp<cr>
+    :nnoremap <leader>t :!gnome-terminal --working-directory=%:p:h &<cr>
+    " :nnoremap <leader>tn :tabn<cr>
+    " :nnoremap <leader>tp :tabp<cr>
     :nnoremap <leader>y "*y
     :nnoremap <leader>p "*p
 " }}}
