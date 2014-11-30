@@ -112,3 +112,12 @@
 [submodule "dotfiles/.vim/bundle/autoclose"]
 	path = dotfiles/.vim/bundle/autoclose
 	url = git://github.com/Townk/vim-autoclose
+[submodule "dotfiles/.vim/bundle/vim-surround"]
+	path = dotfiles/.vim/bundle/vim-surround
+	url = git://github.com/tpope/vim-surround.git
+[submodul "dotfiles/.vim/bundle/editorconfig"]
+    path = dotfiles/.vim/bundle/editorconfig
+    url = git://github.com/editorconfig/editorconfig-vim
+[submodule "dotfiles/.vim/bundle/selecta.vim"]
+	path = dotfiles/.vim/bundle/selecta.vim
+	url = git@github.com:michaelavila/selecta.vim.git
