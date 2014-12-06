@@ -2,9 +2,7 @@
 # ~/.bash_profile
 #
 [ -s "/home/elkorn/.nvm/nvm.sh" ] && . "/home/elkorn/.nvm/nvm.sh" # This loads nvm
-export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/Code/go
-export GOROOT=/usr/local/go
 export PATH=$PATH:$GOPATH/bin
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

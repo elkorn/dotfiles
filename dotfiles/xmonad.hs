@@ -1,6 +1,7 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.SetWMName
 import XMonad.Layout.NoBorders
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
@@ -20,6 +21,8 @@ myManageHook = composeAll [
     className =? "Gvim" --> doShift "2:Dev",
     className =? "gvim" --> doShift "2:Dev",
     className =? "subl" --> doShift "2:Dev",
+    className =? "eclipse" --> doShift "2:Dev",
+    className =? "jetbrains-idea-ce" --> doShift "2:Dev",
     className =? "app.asana.com" --> doShift "8:Org",
     className =? "chromium-browser" --> doShift "3:Web",
     className =? "Chromium-browser" --> doShift "3:Web",
@@ -51,6 +54,7 @@ main = do
   xmproc <- spawnPipe "xmobar $HOME/.config/dotfiles/dotfiles/.xmobarrc"
   xmprox <- spawnPipe "sleep 3 $HOME/.config/dotfiles/dotfiles/trayer.sh"
   xmonad $ defaultConfig {
+         startupHook = setWMName "LG3D",
          terminal = "gnome-terminal --hide-menubar",
          manageHook =myManageHook <+> manageDocks <+>  manageHook defaultConfig,
          layoutHook = avoidStruts $ smartBorders $  layoutHook defaultConfig,
