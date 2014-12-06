@@ -18,6 +18,7 @@ Config { font = "-misc-fixed-*-*-*-*-12-*-*-*-*-*-*-*"
                       Run Date "%a %_d.%m.%Y %H:%M:%S" "date" 10,
                       Run Com "/bin/bash" ["/home/elkorn/.config/bash/evenodd.sh"] "cw" 100000,
                       Run StdinReader,
+                      --Run Volume "default" "Master" [] 10,
                       Run Com "node" ["/home/elkorn/Code/pomodorojs/bin/showtime.js"] "pomodoro" 10
                     ]
        , sepChar = "%"
