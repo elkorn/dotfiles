@@ -1,4 +1,5 @@
 :let mapleader=" "
+>>>>>>> c855d54fa22b53854094483de87cb439738fcd6d
 " NORMAL mode {{{
     " Toggle showing invisibles
     :nnoremap <leader>l :set list!<cr>
@@ -24,14 +25,6 @@
     " Set CWD to currently opened file
     :nnoremap <leader>cwd :cd %:p:h<cr>
     " Split navigation
-    :nnoremap <C-J> <C-W><C-J>
-    :nnoremap <C-K> <C-W><C-K>
-    :nnoremap <C-L> <C-W><C-L>
-    :nnoremap <C-H> <C-W><C-H>
-    :nnoremap <C-S-J> <C-W><C-S-J>
-    :nnoremap <C-S-K> <C-W><C-S-K>
-    :nnoremap <C-S-L> <C-W><C-S-L>
-    :nnoremap <C-S-H> <C-W><C-S-H>
     :nnoremap <leader>wr :w<cr>
     :nnoremap <leader>n :NERDTreeToggle<cr>
     :nmap <F2> :TagbarToggle<CR>
@@ -39,7 +32,7 @@
     :nnoremap <leader>W :Welcome<cr>
     :nnoremap <leader>; :
     :nnoremap f *
-    :nnoremap <leader>t :!gnome-terminal --working-directory=%:p:h<cr>
+    :nnoremap <leader>t :!gnome-terminal --working-directory=%:p:h &<cr>
     " :nnoremap <leader>tn :tabn<cr>
     " :nnoremap <leader>tp :tabp<cr>
 " }}}
