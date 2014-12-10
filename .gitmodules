@@ -28,6 +28,9 @@
 [submodule "dotfiles/.vim/bundle/vim-fugitive"]
 	path = dotfiles/.vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
+[submodule "dotfiles/.vim/bundle/vimshell.vim"]
+	path = dotfiles/.vim/bundle/vimshell.vim
+	url = https://github.com/Shougo/vimshell.vim.git
 [submodule "dotfiles/.vim/bundle/vim-snippets"]
 	path = dotfiles/.vim/bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
@@ -64,15 +67,15 @@
 [submodule "dotfiles/.vim/bundle/vimwiki"]
 	path = dotfiles/.vim/bundle/vimwiki
 	url = https://github.com/vimwiki/vimwiki.git
-[submodule "dotfiles/.vim/bundle/editorconfig"]
-	path = dotfiles/.vim/bundle/editorconfig
-	url = https://github.com/editorconfig/editorconfig-vim.git
-[submodule "dotfiles/.vim/bundle/vim-project"]
-	path = dotfiles/.vim/bundle/vim-project
-	url = https://github.com/amiorin/vim-project.git
-[submodule "dotfiles/.vim/bundle/jsbeautify"]
-	path = dotfiles/.vim/bundle/jsbeautify
-	url = https://github.com/maksimr/vim-jsbeautify.git
+[submodule "dotfiles/.vim/bundle/YUNOcommit.vim"]
+	path = dotfiles/.vim/bundle/YUNOcommit.vim
+	url = git@github.com:esneider/YUNOcommit.vim.git
+[submodule "dotfiles/.vim/bundle/incsearch.vim"]
+	path = dotfiles/.vim/bundle/incsearch.vim
+	url = git@github.com:haya14busa/incsearch.vim.git
+[submodule "dotfiles/.vim/bundle/tern_for_vim"]
+	path = dotfiles/.vim/bundle/tern_for_vim
+	url = git@github.com:marijnh/tern_for_vim.git
 [submodule "dotfiles/.vim/bundle/ag"]
 	path = dotfiles/.vim/bundle/ag
 	url = https://github.com/rking/ag.vim
@@ -112,3 +115,15 @@
 [submodule "dotfiles/.vim/bundle/conoline.vim"]
 	path = dotfiles/.vim/bundle/conoline.vim
 	url = https://github.com/miyakogi/conoline.vim.git
+[submodule "dotfiles/.vim/bundle/autoclose"]
+	path = dotfiles/.vim/bundle/autoclose
+	url = git://github.com/Townk/vim-autoclose
+[submodule "dotfiles/.vim/bundle/vim-surround"]
+	path = dotfiles/.vim/bundle/vim-surround
+	url = git://github.com/tpope/vim-surround.git
+[submodul "dotfiles/.vim/bundle/editorconfig"]
+    path = dotfiles/.vim/bundle/editorconfig
+    url = git://github.com/editorconfig/editorconfig-vim
+[submodule "dotfiles/.vim/bundle/selecta.vim"]
+	path = dotfiles/.vim/bundle/selecta.vim
+	url = git@github.com:michaelavila/selecta.vim.git
