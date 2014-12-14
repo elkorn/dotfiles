@@ -19,7 +19,7 @@ execute pathogen#infect()
 :set shiftwidth=4
 :set expandtab
 :set background=dark
-:colorscheme tron
+:colorscheme jellybeans
 :set omnifunc=syntaxcomplete#Complete
 :set splitright
 :set foldmethod=syntax
@@ -35,9 +35,11 @@ execute pathogen#infect()
 :set mouse=a
 :set autoread
 :set colorcolumn=81
-" :set cursorcolumn
+:highlight ColorColumn ctermbg=8
+:set cursorcolumn
 :set backspace=eol,start,indent
-" :set list listchars=tab:»·,trail:·,eol:¶
+:set list listchars=tab:»·,trail:·,eol:¶
+:set list!
 let g:user_emmet_mode='a'    "enable all function in all mode.
 
 let g:airline_powerline_fonts = 1
