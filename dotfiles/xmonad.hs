@@ -50,7 +50,7 @@ main = do
   xmproc <- spawnPipe "feh --bg-fill $HOME/Desktop/archlinux_logo-wallpaper-1920x1080.jpg"
   xmprox <- spawnPipe "pidgin"
   xmprox <- spawnPipe "gvim"
-  xmproc <- spawnPipe "urxvt -e irssi"
+  xmproc <- spawnPipe "xchat"
   xmproc <- spawnPipe "xmobar $HOME/.config/dotfiles/dotfiles/.xmobarrc"
   xmprox <- spawnPipe "sleep 3 $HOME/.config/dotfiles/dotfiles/trayer.sh"
   xmonad $ defaultConfig {

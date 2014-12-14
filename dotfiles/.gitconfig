@@ -1,6 +1,7 @@
 [user]
     email = helluinster@gmail.com
     name = Korneliusz Caputa
+    tool = vimdiff
 [alias]
     co = checkout
     ec = config --global -e
