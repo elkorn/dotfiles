@@ -4,6 +4,7 @@
 :nnoremap <leader>gd :GoDef<cr>
 :nnoremap <leader>gi :GoImports<cr>
 :nnoremap <leader>impl viw:GoImpl f @* io.Reader
+:set foldmethod=syntax
 :nnoremap <leader>lt :call ListTodos("go")<cr>
 :nnoremap <Leader>e <Plug>(go-rename)
 
