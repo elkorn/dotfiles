@@ -32,7 +32,6 @@ execute pathogen#infect()
 :set smartcase
 :set wildmenu
 :set wildmode=longest:full,full
-:set mouse=a
 :set autoread
 :set colorcolumn=81
 :highlight ColorColumn ctermbg=8
