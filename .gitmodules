@@ -130,3 +130,19 @@
 [submodule "dotfiles/.vim/bundle/selecta.vim"]
 	path = dotfiles/.vim/bundle/selecta.vim
 	url = git@github.com:michaelavila/selecta.vim.git
+[submodule "dotfiles/.vim/bundle/vimproc.vim"]
+	path = dotfiles/.vim/bundle/vimproc.vim
+	url = https://github.com/Shougo/vimproc.vim.git
+[submodule "dotfiles/.vim/bundle/self"]
+	path = dotfiles/.vim/bundle/self
+	url = git://github.com/megaannum/self.git
+[submodule "dotfiles/.vim/bundle/forms"]
+	path = dotfiles/.vim/bundle/forms
+	url = git://github.com/megaannum/forms.git
+[submodule "dotfiles/.vim/bundle/ensime"]
+	path = dotfiles/.vim/bundle/ensime
+	url = git://github.com/aemoncannon/ensime.git
+	branch = scala-2.9
+[submodule "dotfiles/.vim/bundle/vimside"]
+	path = dotfiles/.vim/bundle/vimside
+	url = git://github.com/megaannum/vimside.git
