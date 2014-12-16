@@ -4,6 +4,7 @@
 [ -s "/home/elkorn/.nvm/nvm.sh" ] && . "/home/elkorn/.nvm/nvm.sh" # This loads nvm
 export GOPATH=$HOME/Code/go
 export PATH=$PATH:$GOPATH/bin
+. $HOME/.config/bash/sprunge.sh
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
