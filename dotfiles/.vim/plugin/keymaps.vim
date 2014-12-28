@@ -36,6 +36,7 @@
     " :nnoremap <leader>tp :tabp<cr>
     :nnoremap <leader>r :NERDTreeFind<cr>
     :nnoremap <C-l> :CtrlPLine<cr>
+    :nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 " }}}
 
  
