@@ -1,2 +1,2 @@
-  :noremap <buffer> <leader>b :call HtmlBeautify()<cr>
+  :noremap <buffer> <leader>b :call HtmlBeautify()<cr>:call HtmlIndent()<cr>
   :set smartindent
