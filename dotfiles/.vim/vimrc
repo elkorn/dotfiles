@@ -18,11 +18,11 @@ execute pathogen#infect()
 :set tabstop=4
 :set shiftwidth=4
 :set expandtab
+:colorscheme jellybeans
 :set background=dark
 :colorscheme jellybeans
 :set omnifunc=syntaxcomplete#Complete
 :set splitright
-:set foldmethod=syntax
 :set foldlevelstart=1
 :set nobackup
 :set nowb
@@ -66,4 +66,7 @@ set rtp+=~/.vim/bundle/vim-project/
 
 " SETTING FONTS {{{
 set anti enc=utf-8
+" }}}
+" AUTOCMD {{{
+:au BufEnter * set foldmethod=syntax
 " }}}

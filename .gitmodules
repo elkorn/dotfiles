@@ -118,9 +118,6 @@
 [submodule "dotfiles/.vim/bundle/jellybeans.vim"]
 	path = dotfiles/.vim/bundle/jellybeans.vim
 	url = https://github.com/nanotech/jellybeans.vim
-[submodule "dotfiles/.vim/bundle/autoclose"]
-	path = dotfiles/.vim/bundle/autoclose
-	url = git://github.com/Townk/vim-autoclose
 [submodule "dotfiles/.vim/bundle/vim-surround"]
 	path = dotfiles/.vim/bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
@@ -146,3 +143,9 @@
 [submodule "dotfiles/.vim/bundle/vimside"]
 	path = dotfiles/.vim/bundle/vimside
 	url = git://github.com/megaannum/vimside.git
+[submodule "dotfiles/.vim/bundle/vim-javascript"]
+	path = dotfiles/.vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule "dotfiles/.vim/bundle/vim-jsx"]
+	path = dotfiles/.vim/bundle/vim-jsx
+	url = https://github.com/mxw/vim-jsx.git
