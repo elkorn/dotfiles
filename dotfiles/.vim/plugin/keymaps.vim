@@ -37,6 +37,15 @@
     :nnoremap <leader>r :NERDTreeFind<cr>
     :nnoremap <C-l> :CtrlPLine<cr>
     :nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+    " Disable arrow keys in normal mode
+    :nmap <up> <nop>
+    :nmap <down> <nop>
+    :nmap <left> <nop>
+    :nmap <right> <nop>
+
+    " Follow search matches
+    :nnoremap n nzz
+    :nnoremap N Nzz
 " }}}
 
  
@@ -47,6 +56,12 @@
 :inoremap <c-f> <esc>yypi
 :inoremap jk <esc> 
 :inoremap <leader>wr <esc>:w<cr>a
+" }}}
+
+" VISUAL mode {{{
+" Move visual block
+:vnoremap J :m '>+1<CR>gv=gv
+:vnoremap K :m '<-2<CR>gv=gv
 " }}}
 
 " MOVEMENT mappings {{{

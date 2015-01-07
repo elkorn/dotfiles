@@ -112,9 +112,6 @@
 [submodule "dotfiles/.vim/bundle/play2vim"]
 	path = dotfiles/.vim/bundle/play2vim
 	url = https://github.com/gre/play2vim.git
-[submodule "dotfiles/.vim/bundle/conoline.vim"]
-	path = dotfiles/.vim/bundle/conoline.vim
-	url = https://github.com/miyakogi/conoline.vim.git
 [submodule "dotfiles/.vim/bundle/jellybeans.vim"]
 	path = dotfiles/.vim/bundle/jellybeans.vim
 	url = https://github.com/nanotech/jellybeans.vim

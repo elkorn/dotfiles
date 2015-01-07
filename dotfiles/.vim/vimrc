@@ -35,7 +35,7 @@ execute pathogen#infect()
 :set autoread
 :set colorcolumn=81
 :highlight ColorColumn ctermbg=8
-:set cursorcolumn
+:set cursorline cursorcolumn
 :set backspace=eol,start,indent
 :set list listchars=tab:»·,trail:·,eol:¶
 :set list!
@@ -67,6 +67,14 @@ set rtp+=~/.vim/bundle/vim-project/
 " SETTING FONTS {{{
 set anti enc=utf-8
 " }}}
+
 " AUTOCMD {{{
 :au BufEnter * set foldmethod=syntax
+" }}}
+
+" ENABLE UNDO BETWEEN SESSIONS {{{
+:set undofile                " Save undo's after file closes
+:set undodir=$HOME/.vim/undo " where to save undo histories
+:set undolevels=1000         " How many undos
+:set undoreload=10000        " number of lines to save for undo
 " }}}
