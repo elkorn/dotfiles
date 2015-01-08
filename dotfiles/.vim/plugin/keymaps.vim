@@ -55,7 +55,6 @@
 " Duplicate current line
 :inoremap <c-f> <esc>yypi
 :inoremap jk <esc> 
-:inoremap <leader>wr <esc>:w<cr>a
 " }}}
 
 " VISUAL mode {{{
