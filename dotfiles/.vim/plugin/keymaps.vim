@@ -1,5 +1,4 @@
 :let mapleader=" "
->>>>>>> c855d54fa22b53854094483de87cb439738fcd6d
 " NORMAL mode {{{
     " Toggle showing invisibles
     :nnoremap <leader>l :set list!<cr>
@@ -35,6 +34,8 @@
     :nnoremap <leader>t :!gnome-terminal --working-directory=%:p:h &<cr>
     " :nnoremap <leader>tn :tabn<cr>
     " :nnoremap <leader>tp :tabp<cr>
+    :nnoremap <leader>r :NERDTreeFind<cr>
+    :nnoremap <C-l> :CtrlPLine<cr>
 " }}}
 
  
@@ -61,19 +62,3 @@
 :onoremap il< :<c-u>normal! F>vi<<cr>
 
 " }}}
-
-call tinykeymap#Load('windows')
-
-call tinykeymap#Map('windows', '<C-right>', 'wincmd >')
-call tinykeymap#Map('windows', '<C-left>', 'wincmd <')
-call tinykeymap#Map('windows', '<C-up>', 'wincmd +')
-call tinykeymap#Map('windows', '<C-k>', 'wincmd +')
-call tinykeymap#Map('windows', '<C-j>', 'wincmd -')
-call tinykeymap#Map('windows', '<C-h>', 'wincmd <')
-call tinykeymap#Map('windows', '<C-l>', 'wincmd >')
-
-call tinykeymap#Map('windows', 'l', 'wincmd l')
-call tinykeymap#Map('windows', 'h', 'wincmd h')
-call tinykeymap#Map('windows', 'j', 'wincmd j')
-call tinykeymap#Map('windows', 'k', 'wincmd k')
-call tinykeymap#Map('windows', 'q', 'wincmd q')
