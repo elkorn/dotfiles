@@ -37,9 +37,6 @@
 [submodule "dotfiles/.vim/bundle/angular-vim-snippets"]
 	path = dotfiles/.vim/bundle/angular-vim-snippets
 	url = https://github.com/matthewsimo/angular-vim-snippets.git
-[submodule "dotfiles/.vim/bundle/vim-github-colorscheme"]
-	path = dotfiles/.vim/bundle/vim-github-colorscheme
-	url = https://github.com/endel/vim-github-colorscheme.git
 [submodule "dotfiles/.vim/bundle/vim-scala"]
 	path = dotfiles/.vim/bundle/vim-scala
 	url = https://github.com/derekwyatt/vim-scala.git
@@ -112,9 +109,6 @@
 [submodule "dotfiles/.vim/bundle/play2vim"]
 	path = dotfiles/.vim/bundle/play2vim
 	url = https://github.com/gre/play2vim.git
-[submodule "dotfiles/.vim/bundle/conoline.vim"]
-	path = dotfiles/.vim/bundle/conoline.vim
-	url = https://github.com/miyakogi/conoline.vim.git
 [submodule "dotfiles/.vim/bundle/jellybeans.vim"]
 	path = dotfiles/.vim/bundle/jellybeans.vim
 	url = https://github.com/nanotech/jellybeans.vim
@@ -146,3 +140,6 @@
 [submodule "dotfiles/.vim/bundle/vimside"]
 	path = dotfiles/.vim/bundle/vimside
 	url = git://github.com/megaannum/vimside.git
+[submodule "dotfiles/.vim/bundle/vim-jsx"]
+	path = dotfiles/.vim/bundle/vim-jsx
+	url = https://github.com/mxw/vim-jsx.git
