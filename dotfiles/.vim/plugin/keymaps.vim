@@ -1,4 +1,4 @@
-:let mapleader=" "
+:let mapleader=","
 " NORMAL mode {{{
     " Toggle showing invisibles
     :nnoremap <leader>l :set list!<cr>
