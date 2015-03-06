@@ -5,6 +5,7 @@ execute pathogen#infect()
 " }}}
 "
 " BASIC STUFF {{{
+:set hlsearch
 :set nocompatible
 :set autochdir
 :set t_Co=256
@@ -36,6 +37,7 @@ execute pathogen#infect()
 :set colorcolumn=81
 :highlight ColorColumn ctermbg=8
 :set cursorcolumn
+:set cursorline
 :set backspace=eol,start,indent
 :set list listchars=tab:»·,trail:·,eol:¶
 :set list!
