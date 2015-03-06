@@ -143,3 +143,12 @@
 [submodule "dotfiles/.vim/bundle/vim-jsx"]
 	path = dotfiles/.vim/bundle/vim-jsx
 	url = https://github.com/mxw/vim-jsx.git
+[submodule "dotfiles/.vim/bundle/jsbeautify"]
+	path = dotfiles/.vim/bundle/jsbeautify
+	url = https://github.com/maksimr/vim-jsbeautify.git
+[submodule "dotfiles/.vim/bundle/vim-project"]
+	path = dotfiles/.vim/bundle/vim-project
+	url = https://github.com/amiorin/vim-project.git
+[submodule "dotfiles/.vim/bundle/forms"]
+	path = dotfiles/.vim/bundle/forms
+	url = https://github.com/megaannum/forms.git
