@@ -1,4 +1,9 @@
 */projects.vim
 dotfiles/.vim/plugin/font.vim
 *.log
+**/*~
+dotfiles/.emacs.d/auto-save-list/*
+dotfiles/.emacs.d/elpa/*
+dotfiles/.emacs.d/ensime/*
+
 
