@@ -1,0 +1,7 @@
+(evil-leader/set-key "av" 'eval-buffer)
+(evil-leader/set-key "x" 'smex)
+(evil-leader/set-key "o" 'previous-buffer)
+(evil-leader/set-key "p" 'next-buffer)
+; (define-key evil-insert-state-map "jk" 'evil-normal-state)
+(evil-leader/set-key "l" 'projectile-find-file)
+(evil-leader/set-key "w" 'save-buffer)

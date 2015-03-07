@@ -1,0 +1,1 @@
+("~/.config/dotfiles/" "~/Code/scala/aquila/")
