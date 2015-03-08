@@ -5,7 +5,6 @@
 ; No toolbar
 (tool-bar-mode -1)
 (global-relative-line-numbers-mode)
-(global-hl-line-mode)
 (column-highlight-mode)
 
 ; Get rid of the butt ugly OSX scrollbars in GUI
