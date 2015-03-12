@@ -152,3 +152,24 @@
 [submodule "dotfiles/.vim/bundle/vim-surround"]
 	path = dotfiles/.vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule "dotfiles/.vim/bundle/vim-clojure-static"]
+	path = dotfiles/.vim/bundle/vim-clojure-static
+	url = https://github.com/guns/vim-clojure-static.git
+[submodule "dotfiles/.vim/bundle/vim-fireplace"]
+	path = dotfiles/.vim/bundle/vim-fireplace
+	url = https://github.com/tpope/vim-fireplace.git
+[submodule "dotfiles/.vim/bundle/paredit.vim"]
+	path = dotfiles/.vim/bundle/paredit.vim
+	url = https://github.com/vim-scripts/paredit.vim.git
+[submodule "dotfiles/.vim/bundle/rainbow_parentheses.vim"]
+	path = dotfiles/.vim/bundle/rainbow_parentheses.vim
+	url = https://github.com/kien/rainbow_parentheses.vim.git
+[submodule "dotfiles/.vim/bundle/vim-orgmode"]
+	path = dotfiles/.vim/bundle/vim-orgmode
+	url = https://github.com/jceb/vim-orgmode.git
+[submodule "dotfiles/.vim/bundle/utl.vim"]
+	path = dotfiles/.vim/bundle/utl.vim
+	url = https://github.com/vim-scripts/utl.vim.git
+[submodule "dotfiles/.vim/bundle/vim-speeddating"]
+	path = dotfiles/.vim/bundle/vim-speeddating
+	url = https://github.com/tpope/vim-speeddating.git

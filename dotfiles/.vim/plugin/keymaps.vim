@@ -25,6 +25,7 @@
     :nnoremap <leader>cwd :cd %:p:h<cr>
     " Split navigation
     :nnoremap <leader>wr :w<cr>
+    :nnoremap <leader>wo :e ~/vimwiki/org/index.org<cr>
     :nnoremap <leader>n :NERDTreeToggle<cr>
     :nmap <F2> :TagbarToggle<CR>
     :nnoremap <F3> :Autoformat<cr><cr>
