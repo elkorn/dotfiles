@@ -43,6 +43,9 @@
 (load-user-file "ido.el")
 (load-user-file "company.el")
 (load-user-file "ensime.el")
+(load-user-file "javascript.el")
+(load-user-file "editorconfig.el")
+(load-user-file "paredit.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -53,7 +56,7 @@
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
- '(custom-enabled-themes (quote (whiteboard)))
+ '(custom-enabled-themes (quote (ujelly)))
  '(custom-safe-themes
    (quote
     ("0f6e58d1814b4138c5a88241f96547d35883cbb3df6cf9ec8ef44856ece04c13" default))))

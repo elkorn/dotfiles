@@ -1,0 +1,30 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("workshop-react"
+ (filename . "~/Code/workshop-react/")
+ (front-context-string . "app\n  drwxr-xr-x")
+ (rear-context-string . "96 Mar  6 00:19 ")
+ (position . 238))
+("interactive-cv"
+ (filename . "~/Code/interactive-cv/")
+ (front-context-string . "39 bower.json\n  ")
+ (rear-context-string . "  599 Dec 13 15:")
+ (position . 289))
+("machine-learning"
+ (filename . "~/Code/MOOCs/ml/")
+ (front-context-string . "lclass-ex1-008\n ")
+ (rear-context-string . "6 Mar  8 11:04 m")
+ (position . 227))
+("dotfiles"
+ (filename . "~/.config/dotfiles/")
+ (front-context-string . "dotfiles\n  drwxr")
+ (rear-context-string . "96 Mar  7 23:10 ")
+ (position . 232))
+("vimrc"
+ (filename . "~/.emacs.d/init.el")
+ (front-context-string . ".el\")\n(load-user")
+ (rear-context-string . "d-user-file \"ido")
+ (position . 1271))
+)

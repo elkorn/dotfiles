@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- dirtree
+ flycheck-mode
+ column-highlight-mode
+ web-beautify-js
+ js2-minor-mode
  dired
- dirtree-display
- delete-file
  package-install
- projectile-mode
- projectile-commander
+ customize-themes
 )
 
 ;; ----- smex-data -----
@@ -17,14 +17,14 @@
  (icicle-ido-like-mode . 1)
  (icicle-recent-file . 3)
  (icicle-anything . 3)
- (package-install . 4)
+ (package-install . 6)
  (ac-fuzzy-complete . 1)
  (anything . 3)
  (describe-project . 1)
  (repeat . 1)
  (icicle-apropos-command . 1)
  (dirs . 1)
- (dired . 2)
+ (dired . 3)
  (icicle-mode . 7)
  (package-list-packages . 1)
  (projectile-mode . 4)
@@ -34,4 +34,10 @@
  (dirtree . 9)
  (dirtree-display . 4)
  (delete-file . 1)
+ (term . 1)
+ (customize-themes . 1)
+ (js2-minor-mode . 1)
+ (web-beautify-js . 1)
+ (column-highlight-mode . 1)
+ (flycheck-mode . 1)
 )

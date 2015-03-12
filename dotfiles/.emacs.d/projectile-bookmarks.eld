@@ -1,1 +1,1 @@
-("~/.config/dotfiles/" "~/Code/scala/aquila/")
+("~/.config/dotfiles/" "~/Code/workshop-react/" "~/Code/MOOCs/" "~/Code/interactive-cv/" "~/vimwiki/" "~/.config/bash/" "~/Code/scala/aquila/")
