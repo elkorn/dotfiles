@@ -173,3 +173,6 @@
 [submodule "dotfiles/.vim/bundle/vim-speeddating"]
 	path = dotfiles/.vim/bundle/vim-speeddating
 	url = https://github.com/tpope/vim-speeddating.git
+[submodule "dotfiles/.vim/bundle/DrawIt"]
+	path = dotfiles/.vim/bundle/DrawIt
+	url = https://github.com/vim-scripts/DrawIt.git
