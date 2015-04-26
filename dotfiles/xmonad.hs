@@ -47,10 +47,9 @@ myWide = Mirror $ Tall nmaster delta ratio
         ratio   = 80/100
 
 main = do
-  xmproc <- spawnPipe "feh --bg-fill $HOME/Desktop/storm_over_paradise-wallpaper-2880x1620.jpg"
-  xmprox <- spawnPipe "pidgin"
+  xmproc <- spawnPipe "feh --bg-fill $HOME/Desktop/dark-woods.jpg"
   xmprox <- spawnPipe "gvim"
-  xmproc <- spawnPipe "xchat"
+  xmproc <- spawnPipe "conky"
   xmproc <- spawnPipe "xmobar $HOME/.config/dotfiles/dotfiles/.xmobarrc"
   xmprox <- spawnPipe "sleep 3 $HOME/.config/dotfiles/dotfiles/trayer.sh"
   xmonad $ defaultConfig {
