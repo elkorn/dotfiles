@@ -23,10 +23,13 @@
      ;; markdown
      ;; org
      ;; syntax-checking
+     (haskell :variables haskell-enable-ghci-ng-support t)
      scala
      evil-commentary
      themes-megapack
      javascript
+     evil-org
+     git
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
@@ -72,7 +75,7 @@ before layers configuration."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("DejaVu Mono Sans"
-                               :size 15
+                               :size 24
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)

@@ -18,8 +18,8 @@ myManageHook = composeAll [
     className =? "Sublime_text" --> doShift "2:Dev",
     className =? "Subl" --> doShift "2:Dev",
     className =? "subl" --> doShift "2:Dev",
-    className =? "Gvim" --> doShift "2:Dev",
-    className =? "gvim" --> doShift "2:Dev",
+    className =? "Emacs" --> doShift "2:Dev",
+    className =? "emacs" --> doShift "2:Dev",
     className =? "subl" --> doShift "2:Dev",
     className =? "eclipse" --> doShift "2:Dev",
     className =? "jetbrains-idea-ce" --> doShift "2:Dev",
@@ -35,6 +35,8 @@ myManageHook = composeAll [
     className =? "Remmina" --> doShift "7:VM",
     className =? "transmission-gtk" --> doShift "6:Med",
     className =? "Transmission-gtk" --> doShift "6:Med",
+    className =? "spotify" --> doShift "6:Med",
+    className =? "Spotify" --> doShift "6:Med",
     manageDocks]
 
 myWide = Mirror $ Tall nmaster delta ratio
@@ -48,7 +50,7 @@ myWide = Mirror $ Tall nmaster delta ratio
 
 main = do
   xmproc <- spawnPipe "feh --bg-fill $HOME/Desktop/dark-woods.jpg"
-  xmprox <- spawnPipe "gvim"
+  xmprox <- spawnPipe "emacs"
   xmproc <- spawnPipe "conky"
   xmproc <- spawnPipe "xmobar $HOME/.config/dotfiles/dotfiles/.xmobarrc"
   xmprox <- spawnPipe "sleep 3 $HOME/.config/dotfiles/dotfiles/trayer.sh"
@@ -56,7 +58,7 @@ main = do
          startupHook = setWMName "LG3D",
          terminal = "gnome-terminal --hide-menubar",
          manageHook =myManageHook <+> manageDocks <+>  manageHook defaultConfig,
-         layoutHook = avoidStruts $ smartBorders $  layoutHook defaultConfig,
+         layoutHook = avoidStruts $ smartBorders $ layoutHook defaultConfig,
          logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc,
                           ppTitle = xmobarColor "green" "" . shorten 50
