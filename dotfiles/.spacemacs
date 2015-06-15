@@ -20,16 +20,21 @@
      better-defaults
      ;; (git :variables
      ;;      git-gutter-use-fringe t)
-     ;; markdown
+     markdown
      ;; org
-     ;; syntax-checking
-     (haskell :variables haskell-enable-ghci-ng-support t)
+     syntax-checking
+     ;; haskell
+     html
+     docker
+     extra-langs
+     web-beautify
      scala
      evil-commentary
      themes-megapack
      javascript
      evil-org
      git
+     elkorn 
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
@@ -38,7 +43,9 @@
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'
-   dotspacemacs-delete-orphan-packages t))
+   dotspacemacs-delete-orphan-packages t)
+  (setq dotspacemacs-additional-packages '(editorconfig))
+  )
 
 (defun dotspacemacs/init ()
   "Initialization function.
@@ -52,6 +59,7 @@ before layers configuration."
    dotspacemacs-editing-style 'vim
    ;; If non nil output loading progess in `*Messages*' buffer.
    dotspacemacs-verbose-loading nil
+
    ;; Specify the startup banner. Default value is `official', it displays
    ;; the official spacemacs logo. An integer value is the index of text
    ;; banner, `random' chooses a random text banner in `core/banners'
@@ -146,9 +154,16 @@ before layers configuration."
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
-  (global-linum-mode)
-  (linum-relative-toggle) 
+
+(defun iwb ()
+  (web-beautify-js)
+  (interactive)
+  (indent-region (point-min) (point-max) nil)
 )
 
+  (global-linum-mode)
+  (linum-relative-toggle) 
+  (evil-leader/set-key-for-mode 'js2-mode "nb" 'iwb)
+)
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
