@@ -3,25 +3,35 @@ Config { font = "-misc-fixed-*-*-*-*-12-*-*-*-*-*-*-*"
        , fgColor = "grey"
        , position = TopW L 95 
        , lowerOnStart = False
-       , commands = [ Run MultiCpu ["-t", "cpu: <total0>% <total1>% <total2>% <total1>%","-L","10","-p","2","-H","50","--low","green","--high","red"] 5,
-                      Run ThermalZone 0 [] 5,
-                      Run ThermalZone 1 [] 5,
-                      Run ThermalZone 2 [] 5,
+       , commands = [ Run MultiCpu ["-t", "<total0>% <total1>% <total2>% <total1>%",
+                                    "-L","10","-p","2","-H","50",
+                                    "--low","green","--high","red"] 5,
+                      Run ThermalZone 0 ["-t", "<temp>°",
+                                         "-L", "60", "-H", "80",
+                                         "-l", "green", "-h", "red"] 5,
+                      Run ThermalZone 1 ["-t", "<temp>°",
+                                         "-L", "60", "-H", "80",
+                                         "-l", "green", "-h", "red"] 5,
+                      Run ThermalZone 2 ["-t", "<temp>°",
+                                         "-L", "60", "-H", "80",
+                                         "-l", "green", "-h", "red"] 5,
+                      Run ThermalZone 3 ["-t", "<temp>°",
+                                         "-L", "60", "-H", "80",
+                                         "-l", "green", "-h", "red"] 5,
                       Run Battery
                           ["-t", "<acstatus> <watts> (<left>%/<timeleft>)",
                            "-L", "10", "-H", "80", "-p", "3",
                            "--", "-O", "<fc=green>On</fc> - ", "-i", "",
                            "-L", "-15", "-H", "-5",
                            "-l", "red", "-m", "blue", "-h", "green"] 100,
-                      Run ThermalZone 3 [] 5,
                       Run Memory ["-t","Mem: <usedratio>%", "-p", "2", "-L", "50", "-H", "60", "--low", "green", "--normal", "grey", "--high", "red"] 5,
                       Run Date "%a %_d.%m.%Y %H:%M:%S" "date" 10,
-                      Run Com "/bin/bash" ["/home/elkorn/.config/bash/evenodd.sh"] "cw" 100000,
+                      -- Run Com "/bin/bash" ["/home/elkorn/.config/bash/evenodd.sh"] "cw" 100000,
                       Run StdinReader,
                       --Run Volume "default" "Master" [] 10,
                       Run Com "node" ["/home/elkorn/Code/pomodorojs/bin/showtime.js"] "pomodoro" 10
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%multicpu% %thermal0% %thermal1% %thermal2% %thermal3% | %memory% | %battery% | %StdinReader% }{ <fc=#ff0000>[%pomodoro%] </fc><fc=#ee9a00>%date% [%cw%] </fc>"
+       , template = "%multicpu% | %thermal0% %thermal1% %thermal2% %thermal3% | %memory% | %battery% | %StdinReader% }{ <fc=#ff0000>[%pomodoro%] </fc><fc=#ee9a00>%date%</fc>"
        }

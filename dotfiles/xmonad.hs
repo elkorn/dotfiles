@@ -50,8 +50,10 @@ myWide = Mirror $ Tall nmaster delta ratio
 
 main = do
   xmproc <- spawnPipe "feh --bg-fill $HOME/Desktop/dark-woods.jpg"
-  xmprox <- spawnPipe "emacs"
+  xmprox <- spawnPipe "emacs --daemon"
+  xmprox <- spawnPipe "xflux  -l 51.1078852 -g 17.0385376 -r 1"
   xmproc <- spawnPipe "conky"
+  xmproc <- spawnPipe "zeal"
   xmproc <- spawnPipe "xmobar $HOME/.config/dotfiles/dotfiles/.xmobarrc"
   xmprox <- spawnPipe "sleep 3 $HOME/.config/dotfiles/dotfiles/trayer.sh"
   xmonad $ defaultConfig {

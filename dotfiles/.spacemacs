@@ -23,7 +23,7 @@
      markdown
      ;; org
      syntax-checking
-     ;; haskell
+     haskell
      html
      docker
      extra-langs
@@ -32,6 +32,7 @@
      evil-commentary
      themes-megapack
      javascript
+     purescript
      evil-org
      git
      elkorn 
@@ -39,6 +40,8 @@
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
                                     evil-nerd-commenter
+                                    ghc
+                                    company-ghc
                                     )
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
@@ -75,15 +78,15 @@ before layers configuration."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(ujelly
-                         stekene-light
-                        )
+   dotspacemacs-themes '(soft-charcoal)
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("DejaVu Mono Sans"
-                               :size 24
+   ;; dotspacemacs-default-font '("DejaVu Sans Mono"
+   ;;                             :size 14
+   dotspacemacs-default-font '("Monoid"
+                               :size 15
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -148,6 +151,8 @@ before layers configuration."
    dotspacemacs-default-package-repository nil
    )
   ;; User initialization goes here
+  (setq-default
+   word-wrap t)
   )
 
 (defun dotspacemacs/config ()
@@ -155,15 +160,46 @@ before layers configuration."
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
 
-(defun iwb ()
-  (web-beautify-js)
-  (interactive)
-  (indent-region (point-min) (point-max) nil)
-)
+  (defun iwb ()
+    (web-beautify-js)
+    (interactive)
+    (indent-region (point-min) (point-max) nil)
+    )
 
+  (setq hindent-process-path "~/.local/bin/hindent")
+  (setq hindent-style "johan-tibell")
   (global-linum-mode)
+  (global-centered-cursor-mode)
   (linum-relative-toggle) 
   (evil-leader/set-key-for-mode 'js2-mode "nb" 'iwb)
-)
+  ;; (setq org-default-notes-file (concat org-directory "/notes.org"))
+  ;; orgmode
+  (global-set-key "\C-cl" 'org-store-link)
+  (global-set-key "\C-ca" 'org-agenda)
+  (global-set-key "\C-cc" 'org-capture)
+  (global-set-key "\C-cb" 'org-iswitchb)
+  )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ahs-case-fold-search nil)
+ '(ahs-default-range (quote ahs-range-whole-buffer))
+ '(ahs-idle-interval 0.25)
+ '(ahs-idle-timer 0 t)
+ '(ahs-inhibit-face-list nil)
+ '(org-agenda-files
+   (quote
+    ("~/org/test.org" "~/org/notes.org" "~/vimwiki/org")))
+ '(ring-bell-function (quote ignore) t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:background "#191919" :foreground "#c2c2c2"))))
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
