@@ -41,7 +41,6 @@
    dotspacemacs-excluded-packages '(
                                     evil-nerd-commenter
                                     ghc
-                                    company-ghc
                                     )
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
@@ -86,7 +85,7 @@ before layers configuration."
    ;; dotspacemacs-default-font '("DejaVu Sans Mono"
    ;;                             :size 14
    dotspacemacs-default-font '("Monoid"
-                               :size 15
+                               :size 22
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -167,6 +166,7 @@ layers configuration."
     )
 
   (setq hindent-process-path "~/.local/bin/hindent")
+  ;; (setq ghc-module-command "~/.local/bin/ghc-mod")
   (setq hindent-style "johan-tibell")
   (global-linum-mode)
   (global-centered-cursor-mode)
@@ -178,6 +178,8 @@ layers configuration."
   (global-set-key "\C-ca" 'org-agenda)
   (global-set-key "\C-cc" 'org-capture)
   (global-set-key "\C-cb" 'org-iswitchb)
+
+  (evil-leader/set-key-for-mode 'haskell-mode "nb" 'hindent-reformat-buffer)
   )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -191,6 +193,11 @@ layers configuration."
  '(ahs-idle-interval 0.25)
  '(ahs-idle-timer 0 t)
  '(ahs-inhibit-face-list nil)
+ '(ccm-ignored-commands
+   (quote
+    (mouse-drag-region mouse-set-point widget-button-click scroll-bar-toolkit-scroll evil-mouse-drag-region)))
+ '(ccm-recenter-at-end-of-file t)
+ '(hindent-style "johan-tibell")
  '(org-agenda-files
    (quote
     ("~/org/test.org" "~/org/notes.org" "~/vimwiki/org")))
