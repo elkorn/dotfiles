@@ -8,17 +8,44 @@
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
+set $base00 #101218
+set $base01 #1f222d
+set $base02 #252936
+set $base03 #7780a1
+set $base04 #C0C5CE
+set $base05 #d1d4e0
+set $base06 #C9CCDB
+set $base07 #ffffff
+set $base08 #ee829f
+set $base09 #f99170
+set $base0A #ffefcc
+set $base0B #a5ffe1
+set $base0C #97e0ff
+set $base0D #97bbf7
+set $base0E #c0b7f9
+set $base0F #fcc09e
+
+set $workspace1 "1: "
+set $workspace2 "2: "
+set $workspace3 "3: "
+set $workspace4 "4: "
+set $workspace5 "5: "
+set $workspace6 "6: "
+set $workspace7 "7: "
+set $workspace8 "8: "
+set $workspace9 "9: "
+set $workspace10 "10: "
 
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-# font pango:DejaVu Sans Mono 10
+font pango:System San Francisco Display 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -30,7 +57,7 @@ bindsym $mod+Shift+Return exec gnome-terminal --hide-menubar
 bindsym $mod+Shift+c kill
 
 # start dmenu (a program launcher)
-bindsym $mod+p exec dmenu_run
+bindsym $mod+p exec rofi -show run  -o 85
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -89,28 +116,28 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # reload the configuration file
 bindsym $mod+Shift+q reload
@@ -120,7 +147,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
-mode "resize" {
+mode "  " {
         # These bindings trigger as soon as you enter the resize mode
 
         # Pressing left will shrink the window’s width.
@@ -143,45 +170,63 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $mod+r mode "  "
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         status_command i3status --config ~/.i3/status.conf
-        # disable mouse wheel on workspace buttons
-        # bindsym button4 nop
-        # bindsym button5 nop
+        font pango: System San Francisco Display, FontAwesome 10
+        position bottom
+        colors {
+          separator $base03
+          background $base01
+          statusline $base05
+    #                        border  background text
+          focused_workspace  $base01 $base01    $base07
+          active_workspace   $base01 $base02    $base03
+          inactive_workspace $base01 $base01    $base03
+          urgent_workspace   $base01 $base01    $base08
+        }
 }
 
 bindsym $mod+Shift+Tab move scratchpad
+bindsym $mod+Shift+w sticky toggle
 
 # Show the first scratchpad window
 bindsym $mod+Tab scratchpad show
 
-assign [class="Emacs"] 2
-assign [title="Spotify"] 6
-assign [class="Skype"] 5
-assign [title="Siili Solutions Oyj Slack"] 5
-assign [title="Outlook Web App"] 5
-assign [title="Gmail"] 5
-assign [title="Gitter"] 5
+assign [class="Emacs"] $workspace2
+assign [class="Skype"] $workspace9
+assign [title="Gmail"] $workspace9
+assign [title="Gitter"] $workspace9
+assign [class="Spotify"] $workspace10
 
 new_window 1pixel
 
+for_window [class="jetbrains-idea-ce"] move container to $workspace2
 for_window [title="^forticlientsslvpn"] move scratchpad show
 for_window [title="Software Token"] floating enable
 for_window [title="Terminator Preferences"] floating enable
 for_window [window_role="pop-up"] floating enable
+for_window [class="MPlayer"] floating enable, sticky enable
+for_window [class="Spotify"] move container to workspace $workspace10
 
 bindsym $mod+F1 exec "terminator -e 'yes | /opt/forticlient-sslvpn/64bit/forticlientsslvpn_cli --server 188.117.22.59:10443 --vpnuser pawel.kowalak >/dev/null'"
 bindsym $mod+F2 exec "terminator -e 'yes | /opt/forticlient-sslvpn/64bit/forticlientsslvpn_cli --server vpn.qbrick.com:10443 --vpnuser cplkk >/dev/null'"
-bindsym $mod+BackSpace exec "i3lock -c 000033"
+bindsym $mod+BackSpace exec i3lock
 bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master '5%+' && killall -SIGUSR1 i3status"
 bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '5%-' && killall -SIGUSR1 i3status"
 bindsym XF86AudioMute exec "amixer -D pulse set Master toggle && killall -SIGUSR1 i3status"
 bindsym Print exec scrot
 bindsym --release $mod+Print exec scrot -s
+
+# Widow Colours
+#                         border  background text    indicator
+  client.focused          $base01 $base01    $base07 $base0F
+  client.focused_inactive $base02 $base02    $base03 $base0F
+  client.unfocused        $base02 $base02    $base03 $base0F
+  client.urgent           $base02 $base08    $base00 $base0F
 
 # exec --no-startup-id xsetroot -solid "#000000"
 exec --no-startup-id feh --bg-scale /home/korneliusz/Pictures/55860015.jpg
@@ -190,14 +235,10 @@ exec --no-startup-id xset m 0 0
 exec --no-startup-id setxkbmap -layout pl -option ctrl:nocaps
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift
-# exec --no-startup-id i3-msg 'workspace 2; exec /usr/local/bin/emacs'
-# exec --no-startup-id i3-msg 'workspace 3; exec google-chrome'
-# exec --no-startup-id i3-msg 'workspace 5; exec /usr/local/bin/slack'
-# exec --no-startup-id i3-msg 'workspace 5; exec /usr/local/bin/owa'
-# exec --no-startup-id i3-msg 'workspace 5; exec /usr/local/bin/gmail'
 exec --no-startup-id i3-msg 'workspace 5; exec gitter'
 # exec --no-startup-id i3-msg 'workspace 5; exec skype'
-exec --no-startup-id i3-msg 'workspace 6; exec /usr/local/bin/spotify'
+exec_always spotify
+exec_always compton -f -I 0.15 -O 0.15 -m 0.8
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
