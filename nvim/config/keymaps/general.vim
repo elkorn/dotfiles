@@ -19,3 +19,6 @@ nnoremap <Leader>l, :ll<CR>         " go to current error/warning
 nnoremap <Leader>ln :lnext<CR>      " next error/warning
 nnoremap <Leader>lp :lprev<CR>      " previous error/warning
 
+nnoremap <Leader>a :ProjectRootExe Ack 
+nnoremap <Leader>ub :Unite -start-insert buffer<CR>
+nnoremap <Leader>ug :Unite grep:.<CR>
