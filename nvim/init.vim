@@ -52,6 +52,9 @@ Plug 'pangloss/vim-javascript', { 'for': [ 'javascript' ]}
 Plug 'mxw/vim-jsx', { 'for': [ 'javascript' ]}
 Plug 'justinj/vim-react-snippets', { 'for': [ 'javascript' ]}
 
+" Scala
+Plug 'derekwyatt/vim-scala'", { 'for': [ 'scala' ]}
+
 call plug#end()
 
 let mapleader = ","
