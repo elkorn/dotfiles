@@ -1,95 +1,17 @@
 [global_config]
-  focus = mouse
-  suppress_multiple_term_dialog = True
+  borderless = True
 [keybindings]
 [layouts]
   [[default]]
     [[[child1]]]
-      command = zsh
       parent = window0
-      profile = default
       type = Terminal
     [[[window0]]]
       parent = ""
       type = Window
-  [[irc]]
-    [[[child0]]]
-      fullscreen = False
-      last_active_term = 1e54995c-0a5e-4a7e-aadd-3ec8b908c9ff
-      last_active_window = True
-      maximised = False
-      order = 0
-      parent = ""
-      position = 0:0
-      size = 2558, 1419
-      title = elkorn@arch: ~
-      type = Window
-    [[[terminal1]]]
-      command = weechat
-      order = 0
-      parent = child0
-      profile = default
-      type = Terminal
-      uuid = 1e54995c-0a5e-4a7e-aadd-3ec8b908c9ff
-  [[tinki]]
-    [[[child0]]]
-      fullscreen = False
-      last_active_term = 8c98ad7e-db93-4ef4-ba39-ac2c9187194d
-      last_active_window = True
-      maximised = False
-      order = 0
-      parent = ""
-      position = 1280:0
-      size = 1278, 1417
-      title = elkorn@arch: ~
-      type = Window
-    [[[child1]]]
-      order = 0
-      parent = child0
-      position = 636
-      ratio = 0.499608763693
-      type = HPaned
-    [[[child2]]]
-      order = 0
-      parent = child1
-      position = 706
-      ratio = 0.5
-      type = VPaned
-    [[[terminal3]]]
-      command = MAIL_ENABLED=true MAIL_HOST=mailtrap.io MAIL_PORT=2525 MAIL_USER=025a6503264fb2 MAIL_PASS=54ebbdfb99d45a zsh ~/Documents/DKA/Tinki/scripts/backend.sh; zsh
-      directory = ~/Documents/DKA/Tinki/tinki-backend
-      order = 0
-      parent = child2
-      profile = default
-      type = Terminal
-      uuid = 8c98ad7e-db93-4ef4-ba39-ac2c9187194d
-    [[[terminal4]]]
-      command = zsh ~/Documents/DKA/Tinki/scripts/category-service.sh; zsh
-      directory = ~/Documents/DKA/Tinki/tinki-category-service
-      order = 1
-      parent = child2
-      profile = default
-      type = Terminal
-      uuid = e487e4ff-16b9-451e-b6bf-06fe8f0d0e0d
-    [[[terminal5]]]
-      command = . /home/elkorn/.nvm/nvm.sh && zsh ~/Documents/DKA/Tinki/scripts/frontend.sh; bash
-      directory = ~/Documents/DKA/Tinki/frontend
-      order = 1
-      parent = child1
-      profile = default
-      type = Terminal
-      uuid = 8395aaec-6e73-48d2-9375-cdde03f95d96
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#222222"
-    background_darkness = 0.9
     background_image = None
-    custom_command = zsh
-    font = Iosevka Medium 12
-    foreground_color = "#eeeeee"
-    palette = "#000000:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
-    scrollback_infinite = True
-    scrollbar_position = hidden
+    font = Iosevka 10
     show_titlebar = False
-    use_custom_command = True

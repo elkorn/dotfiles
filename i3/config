@@ -51,7 +51,7 @@ font pango:System San Francisco Display 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Shift+Return exec gnome-terminal --hide-menubar
+bindsym $mod+Shift+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+c kill
@@ -175,7 +175,7 @@ bindsym $mod+r mode "  "
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status --config ~/.i3/status.conf
+        status_command i3status --config ~/.config/i3/status.conf
         font pango: System San Francisco Display, FontAwesome 10
         position bottom
         colors {
@@ -212,8 +212,6 @@ for_window [window_role="pop-up"] floating enable
 for_window [class="MPlayer"] floating enable, sticky enable
 for_window [class="Spotify"] move container to workspace $workspace10
 
-bindsym $mod+F1 exec "terminator -e 'yes | /opt/forticlient-sslvpn/64bit/forticlientsslvpn_cli --server 188.117.22.59:10443 --vpnuser pawel.kowalak >/dev/null'"
-bindsym $mod+F2 exec "terminator -e 'yes | /opt/forticlient-sslvpn/64bit/forticlientsslvpn_cli --server vpn.qbrick.com:10443 --vpnuser cplkk >/dev/null'"
 bindsym $mod+BackSpace exec i3lock
 bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master '5%+' && killall -SIGUSR1 i3status"
 bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '5%-' && killall -SIGUSR1 i3status"
@@ -229,16 +227,15 @@ bindsym --release $mod+Print exec scrot -s
   client.urgent           $base02 $base08    $base00 $base0F
 
 # exec --no-startup-id xsetroot -solid "#000000"
-exec --no-startup-id feh --bg-scale /home/korneliusz/Pictures/55860015.jpg
+exec --no-startup-id feh --bg-scale ~/Data/Pictures/Wallpapers/photo-1443890923422-7819ed4101c0.jpg
 exec --no-startup-id xset r rate 250 30
 exec --no-startup-id xset m 0 0
 exec --no-startup-id setxkbmap -layout pl -option ctrl:nocaps
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift
-exec --no-startup-id i3-msg 'workspace 5; exec gitter'
 # exec --no-startup-id i3-msg 'workspace 5; exec skype'
 exec_always spotify
-exec_always compton -f -I 0.15 -O 0.15 -m 0.8
+exec_always compton -m 0.8
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
