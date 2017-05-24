@@ -1,23 +1,47 @@
 [user]
-    email = helluinster@gmail.com
-    name = Korneliusz Caputa
-    tool = vim
+	email = helluinster@gmail.com
+	name = elkorn
+  # Forces user.email and user.name configuration variables to always be set
+  # when committing, useful when using multiple email addresses.
+  useconfigonly = true
+[branch]
+  # When a new branch is created with git branch or git checkout that tracks
+  # another branch, this variable tells Git to set up pull to rebase instead of
+  # merge. When always, rebase will be set to true for all tracking branches.
+  autosetuprebase = always
+[push]
+  default = current
 [alias]
-    co = checkout
-    ec = config --global -e
-    up = !git pull --rebase --prune $@ && git submodule update --init --recursive
-    cob = checkout -b
-    cm = !git add -A && git commit -m
-    save = !git add -A && git commit -m 'SAVEPOINT'
-    wip = !git add -u && git commit -m "WIP" 
-    undo = reset HEAD~1 --mixed
-    amend = commit -a --amend
-    wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
-    bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f"
-    bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
-    st = status
-    ci = commit
-    br = branch
-    co = checkout
-    df = diff
-    lg = log -p
+  prune = remote prune
+	co = checkout
+	m = mergetool
+	cane = commit --amend --no-edit
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	ls = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate
+	leaderboard = shortlog -sn
+	diff = diff -w --word-diff
+	show = show -w
+	graph = log --graph --all --decorate --stat --date=iso
+	delete-merged = !"git branch --merged | grep -v master | grep -v '*' | xargs -n 1 git branch -d"
+	pru = remote prune origin
+
+	# Rebase
+  rb = rebase
+  rbm = rebase master
+  ra = rebase --abort
+  rc = rebase --continue
+  ri = rebase --interactive
+  rim = rebase --interactive master
+
+  # Logging
+ 	recap = !git log --all --oneline --no-merges --author=${1-$(git config user.email)}
+	today = !git log --all --since=00:00:00 --oneline --no-merges --author=${1-$(git config user.email)}
+	changelog = !git log --oneline --no-merges ${1-$(git describe --abbrev=0)}..HEAD
+	upstream = !git log --oneline --no-merges HEAD..${1-$(git branch -lvv | perl -ne '/^\\*.*\\[(.*?)\\]/ and print "$1\n"')}
+	local = !git log --oneline --no-merges ${1-$(git branch -lvv | perl -ne '/^\\*.*\\[(.*?)\\]/ and print "$1\n"')}..HEAD
+
+  st = status
+
+  staged = diff --staged
+

@@ -1,3 +1,4 @@
+
 ;; -*- mode: emacs-lisp -*-
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
@@ -18,24 +19,43 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     csv
+     typescript
+     yaml
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      auto-completion
+     (auto-completion :variables
+                      auto-completion-enable-snippets-in-popup t
+                      auto-completion-enable-sort-by-usage t
+                      )
      better-defaults
      emacs-lisp
      git
      markdown
      org
      javascript
+     docker
      html
+     react
+     (haskell :variables
+              haskell-enable-ghc-mod-support nil
+              ;; haskell-enable-ghci-ng-support t
+              haskell-process-type 'stack-ghci
+              haskell-process-args-stack-ghci '("--ghc-options=-ferror-spans" "--with-ghc=intero")
+              hindent-style  "johan-tibell"
+              haskell-stylish-on-save t
+              )
+     ;; flow-type
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
      themes-megapack
      elixir
+     ;; erc
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
@@ -47,6 +67,7 @@ values."
    dotspacemacs-additional-packages
    '(
      editorconfig
+     centered-window-mode
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -102,14 +123,14 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(twilight-anti-bright
-                         twilight-bright)
+   dotspacemacs-themes '(sanityinc-tomorrow-night
+                         sanityinc-tomorrow-day)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Droid Sans Mono Slashed"
-                               :size 14
+   dotspacemacs-default-font '("Iosevka"
+                               :size 13
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -252,6 +273,14 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (editorconfig-mode 1)
+  (auto-save-mode 1)
+  (visual-line-mode 1)
+  (global-centered-cursor-mode 1)
+  (set fill-column 81)
+  (fill-column-indicator-mode 1)
+  (linum-relative-global-mode 1)
+  (add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-mode))
+  (setq multi-term-program "/usr/bin/zsh")
   (defun my-org-export-format-drawer (name content)
     (concat "<div class=\"drawer " (downcase name) "\">\n"
             "<h6>" (capitalize name) "</h6>\n"
@@ -280,7 +309,33 @@ you should place your code here."
   (add-hook 'neotree-mode-hook
             (lambda ()
               (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
+
+  (defun codefalling//reset-eslint-rc ()
+    (let ((rc-path (if (projectile-project-p)
+                       (concat (projectile-project-root) ".eslintrc"))))
+      (if (file-exists-p rc-path)
+          (progn
+            (message rc-path)
+            (setq flycheck-eslintrc rc-path)))))    
+
+  (add-hook 'flycheck-mode-hook 'codefalling//reset-eslint-rc)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(blink-matching-paren nil)
+ '(evil-want-Y-yank-to-eol t)
+ '(package-selected-packages
+   (quote
+    (dockerfile-mode docker tablist docker-tramp csv-mode centered-window-mode tide typescript-mode intero hlint-refactor hindent helm-hoogle haskell-snippets company-ghci company-ghc ghc haskell-mode company-cabal cmm-mode yaml-mode company-flow uuidgen powerline pug-mode spinner org-projectile alert org-download ob-elixir org mwim markdown-mode livid-mode skewer-mode simple-httpd link-hint multiple-cursors js2-mode hydra hide-comnt projectile haml-mode git-link flycheck-mix flycheck evil-visual-mark-mode evil-unimpaired iedit evil-ediff eshell-z dumb-jump f autothemer darkokai-theme s tern column-enforce-mode bind-key elixir-mode auto-complete company highlight anzu smartparens bind-map evil undo-tree yasnippet request helm helm-core magit magit-popup git-commit with-editor dash async package-build eyebrowse erc-yt erc-view-log erc-social-graph erc-image erc-hl-nicks zonokai-theme zenburn-theme zen-and-art-theme xterm-color ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe use-package underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme tronesque-theme toxi-theme toc-org tao-theme tangotango-theme tango-plus-theme tango-2-theme tagedit sunny-day-theme sublime-themes subatomic256-theme subatomic-theme stekene-theme spacemacs-theme spaceline spacegray-theme soothe-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smooth-scrolling smeargle slim-mode shell-pop seti-theme scss-mode sass-mode ruby-end reverse-theme restart-emacs rainbow-delimiters railscasts-theme quelpa purple-haze-theme professional-theme popwin planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme persp-mode pcre2el pastels-on-dark-theme paradox page-break-lines orgit organic-green-theme org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme niflheim-theme neotree naquadah-theme mustang-theme multi-term move-text monokai-theme monochrome-theme molokai-theme moe-theme mmm-mode minimal-theme material-theme markdown-toc majapahit-theme magit-gitflow macrostep lush-theme lorem-ipsum linum-relative light-soap-theme leuven-theme less-css-mode json-mode js2-refactor js-doc jbeans-theme jazz-theme jade-mode ir-black-theme inkpot-theme info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation heroku-theme hemisu-theme help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger gh-md gandalf-theme flx-ido flatui-theme flatland-theme firebelly-theme fill-column-indicator farmhouse-theme fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu espresso-theme eshell-prompt-extras esh-help emmet-mode elisp-slime-nav editorconfig dracula-theme django-theme define-word darktooth-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme company-web company-tern company-statistics company-quickhelp colorsarenice-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized coffee-mode clues-theme clean-aindent-mode cherry-blossom-theme busybee-theme buffer-move bubbleberry-theme bracketed-paste birds-of-paradise-plus-theme badwolf-theme auto-yasnippet auto-highlight-symbol auto-compile apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes alchemist aggressive-indent afternoon-theme adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
