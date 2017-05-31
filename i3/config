@@ -222,17 +222,20 @@ for_window [title="Terminator Preferences"] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [class="MPlayer"] floating enable, sticky enable
 for_window [class="Spotify"] move container to workspace $workspace10
+for_window [class="VirtualBox"] move container to workspace $workspace7
 
 bindsym $mod+BackSpace exec i3lock
-bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master '5%+' && killall -SIGUSR1 i3status"
-bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '5%-' && killall -SIGUSR1 i3status"
-bindsym XF86AudioMute exec "amixer -D pulse set Master toggle && killall -SIGUSR1 i3status"
+
+bindsym Print exec scrot ~/Data/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.jpg
+bindsym --release $mod+Print exec scrot -s  ~/Data/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.jpg
+
+bindsym XF86AudioRaiseVolume exec "amixer sset Master '5%+' && killall -SIGUSR1 i3status"
+bindsym XF86AudioLowerVolume exec "amixer sset Master '5%-' && killall -SIGUSR1 i3status"
+bindsym XF86AudioMute exec "amixer set Master toggle && killall -SIGUSR1 i3status"
 bindsym XF86AudioNext exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 bindsym XF86AudioPrev exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 bindsym XF86AudioStop exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
 bindsym XF86AudioPlay exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
-bindsym Print exec scrot
-bindsym --release $mod+Print exec scrot -s
 
 # Widow Colours
 #                         border  background text    indicator
@@ -243,11 +246,13 @@ bindsym --release $mod+Print exec scrot -s
 
 # exec --no-startup-id xsetroot -solid "#000000"
 exec --no-startup-id feh --bg-scale ~/Data/Pictures/Wallpapers/photo-1443890923422-7819ed4101c0.jpg
-exec --no-startup-id xset r rate 250 30
+exec --no-startup-id xset r rate 150 70
 exec --no-startup-id xset m 0 0
 exec --no-startup-id setxkbmap -layout pl -option ctrl:nocaps
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift
+exec --no-startup-id dropbox
+exec --no-startup-id conky -c ~/.conky/defaultrc
 # exec --no-startup-id i3-msg 'workspace 5; exec skype'
 exec_always spotify
 exec_always compton -m 0.8
