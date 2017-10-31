@@ -1,0 +1,9 @@
+[Unit]
+Description=keychain SSH agent
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/keychain --eval --agents ssh --inherit any id_rsa id_comvel_rsa
+
+[Install]
+WantedBy=default.target

@@ -5,4 +5,4 @@ Description=Update dotfiles
 Type=oneshot
 Environment="USER=elkorn","HOME=/home/elkorn"
 WorkingDirectory=/home/elkorn/.config/dotfiles/
-ExecStart=/bin/bash make.sh
+ExecStart=/usr/bin/make all
