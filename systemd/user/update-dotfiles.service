@@ -3,6 +3,6 @@ Description=Update dotfiles
 
 [Service]
 Type=oneshot
-Environment="USER=git"
+Environment="USER=elkorn","HOME=/home/elkorn"
 WorkingDirectory=/home/elkorn/.config/dotfiles/
-ExecStart=/usr/bin/make all
+ExecStart=/bin/bash make.sh
