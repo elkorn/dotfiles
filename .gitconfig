@@ -4,6 +4,8 @@
   # Forces user.email and user.name configuration variables to always be set
   # when committing, useful when using multiple email addresses.
   useconfigonly = true
+[merge]
+  tool = kdiff3
 [branch]
   # When a new branch is created with git branch or git checkout that tracks
   # another branch, this variable tells Git to set up pull to rebase instead of
@@ -12,11 +14,17 @@
 [push]
   default = current
 [alias]
+	p = pull
+	puhs = push
   prune = remote prune
 	co = checkout
+	com = checkout master
+	mm = merge master
 	m = mergetool
 	cane = commit --amend --no-edit
+	cam = commit -am
 	unstage = reset HEAD --
+	rhh = reset --hard HEAD
 	last = log -1 HEAD
 	ls = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate
 	leaderboard = shortlog -sn
@@ -25,6 +33,7 @@
 	graph = log --graph --all --decorate --stat --date=iso
 	delete-merged = !"git branch --merged | grep -v master | grep -v '*' | xargs -n 1 git branch -d"
 	pru = remote prune origin
+	ds = diff -w --word-diff --staged
 
 	# Rebase
   rb = rebase

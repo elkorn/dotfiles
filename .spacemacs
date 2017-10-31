@@ -19,10 +19,12 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     ruby
      sql
      csv
      typescript
      yaml
+     ess
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -38,10 +40,12 @@ values."
      git
      markdown
      org
+     journal
      javascript
      docker
      html
      react
+     scala
      (haskell :variables
               haskell-enable-ghc-mod-support nil
               ;; haskell-enable-ghci-ng-support t
@@ -50,7 +54,6 @@ values."
               hindent-style  "johan-tibell"
               haskell-stylish-on-save t
               )
-     ;; flow-type
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -61,7 +64,7 @@ values."
      typescript
      docker
      ;; spell-checking
-     ;; syntax-checking
+     syntax-checking
      ;; version-control
      )
    ;; List of additional packages that will be installed without being
@@ -72,6 +75,10 @@ values."
    '(
      editorconfig
      centered-window-mode
+     flycheck-flow
+     visual-fill-column
+     key-chord
+     emoji-cheat-sheet-plus
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -117,8 +124,8 @@ values."
    dotspacemacs-startup-banner nil
    ;; List of items to show in the startup buffer. If nil it is disabled.
    ;; Possible values are: `recents' `bookmarks' `projects'.
-   ;; (default '(recents projects))
-   dotspacemacs-startup-lists '(recents projects bookmarks agenda todos)
+   ;; (default '(projects bookmarks))
+   dotspacemacs-startup-lists '(agenda todos bookmarks projects)
    ;; Number of recent files to show in the startup buffer. Ignored if
    ;; `dotspacemacs-startup-lists' doesn't include `recents'. (default 5)
    dotspacemacs-startup-recent-list-size 15
@@ -134,7 +141,6 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Iosevka"
-                               :size 13
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -267,7 +273,7 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  )
+)
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -280,18 +286,25 @@ you should place your code here."
   (auto-save-mode 1)
   (visual-line-mode 1)
   (global-centered-cursor-mode 1)
-  (set fill-column 81)
-  (fill-column-indicator-mode 1)
   (linum-relative-global-mode 1)
-  (add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-mode))
+  (turn-on-fci-mode)
+  (global-prettify-symbols-mode)
+
+  (add-to-list 'auto-mode-alist '("\\.jsx\\'" . react-mode))
   (setq multi-term-program "/usr/bin/zsh")
+  (setq ring-bell-function nil)
+  (setq visible-bell 't)
+  (setq org-directory "~/Dropbox/org")
+  (setq org-journal-dir "~/Dropbox/org/journal")
+  (setq-default fill-column 80)
   (defun my-org-export-format-drawer (name content)
     (concat "<div class=\"drawer " (downcase name) "\">\n"
             "<h6>" (capitalize name) "</h6>\n"
             content
             "\n</div>"))
   (setq org-html-format-drawer-function 'my-org-export-format-drawer)
-  (setq web-beautify-js-program 'es-beautifier)
+  (setq vc-follow-symlinks t)
+  (setq web-beautify-js-program "/home/elkorn/.nvm/versions/node/v7.4.0/bin/es-beautifier")
   (setf my-head-extra
         (concat
          "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n"
@@ -311,12 +324,24 @@ you should place your code here."
                                      :html-head-include-scripts nil
                                      ))
         )
+  (setq browse-url-browser-function 'browse-url-generic
+        engine/browser-function 'browse-url-generic
+        browse-url-generic-program "surf")
+  ;; ---------------------------------------------------------------------------
+  ;; -------------------- REMAPPING THE ESC KEY WITH KEYCHORD ------------------
+  (require 'key-chord)
+  (key-chord-mode 1)
+  (key-chord-define evil-insert-state-map  "jk" 'evil-normal-state)
+  (key-chord-define evil-visual-state-map  "jk" 'evil-normal-state)
+  ;; ---------------------------------------------------------------------------
+
   (add-hook 'neotree-mode-hook
-            (lambda ()
-              (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
+      (lambda ()
+        (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
 
   (add-hook 'text-mode-hook 'auto-fill-mode)
-  (editorconfig-mode 1)
+  (add-hook 'org-mode-hook 'org-indent-mode)
+
 
   (defun codefalling//reset-eslint-rc ()
     (let ((rc-path (if (projectile-project-p)
@@ -327,7 +352,44 @@ you should place your code here."
             (setq flycheck-eslintrc rc-path)))))    
 
   (add-hook 'flycheck-mode-hook 'codefalling//reset-eslint-rc)
-  )
+  (add-hook 'js2-mode-hook 'js2-mode-hide-warnings-and-errors)
+  (remove-hook 'react-mode-hook 'tern-mode)
+
+  (editorconfig-mode 1)
+  ;; Flow (JS) flycheck config (http://flowtype.org)
+  ;; from https://github.com/bodil/emacs.d/blob/master/bodil/bodil-js.el
+  (require 'f)
+  (require 'json)
+  (require 'flycheck)
+
+  (defun flycheck-parse-flow (output checker buffer)
+    (let ((json-array-type 'list))
+      (let ((o (json-read-from-string output)))
+        (mapcar #'(lambda (errp)
+                    (let ((err (cadr (assoc 'message errp))))
+                      (flycheck-error-new
+                      :line (cdr (assoc 'line err))
+                      :column (cdr (assoc 'start err))
+                      :level 'error
+                      :message (cdr (assoc 'descr err))
+                      :filename (f-relative
+                                  (cdr (assoc 'path err))
+                                  (f-dirname (file-truename
+                                              (buffer-file-name))))
+                      :buffer buffer
+                      :checker checker)))
+                (cdr (assoc 'errors o))))))
+
+
+  (flycheck-define-checker javascript-flow
+    "Javascript type checking using Flow."
+    :command ("flow" "--json" source-original)
+    :error-parser flycheck-parse-flow
+    :modes (react-mode js2-mode)
+    :next-checkers ((error . javascript-eslint))
+    )
+  (add-to-list 'flycheck-checkers 'javascript-flow)
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -338,13 +400,21 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector
    [default bold shadow italic underline bold bold-italic bold])
+ '(browse-url-browser-function (quote eww-browse-url))
  '(evil-want-Y-yank-to-eol t)
+ '(flycheck-check-syntax-automatically (quote (save mode-enabled)))
+ '(js2-strict-missing-semi-warning nil)
+ '(js2-strict-trailing-comma-warning nil)
  '(org-agenda-files
    (quote
-    ("/media/Data/Documents/Dropbox/org/notes.org" "/media/Data/Documents/Dropbox/org/work/makersden.org")))
+    ("~/Dropbox/org/work/epimap.org" "~/Dropbox/org/notes.org" "~/Dropbox/org/work/makersden.org" "~/Dropbox/org/TODOs.org")))
+ '(org-agenda-todo-list-sublevels nil)
+ '(org-time-clocksum-use-effort-durations t)
  '(package-selected-packages
    (quote
-    (sql-indent dockerfile-mode docker tablist docker-tramp tide typescript-mode yaml-mode autothemer auto-complete company helm helm-core dash async intero hlint-refactor hindent helm-hoogle haskell-snippets company-ghci company-ghc ghc haskell-mode company-cabal cmm-mode csv-mode parent-mode projectile request gitignore-mode flx magit magit-popup git-commit with-editor smartparens iedit anzu evil goto-chg undo-tree highlight f s dash-functional tern bind-map yasnippet packed zonokai-theme zenburn-theme zen-and-art-theme xterm-color ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package underwater-theme ujelly-theme twilight-theme twilight-bright-theme tronesque-theme toxi-theme toc-org tao-theme tangotango-theme tango-plus-theme tango-2-theme tagedit sunny-day-theme sublime-themes subatomic256-theme subatomic-theme stekene-theme spacemacs-theme spaceline powerline spacegray-theme soothe-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smeargle slim-mode shell-pop seti-theme scss-mode sass-mode reverse-theme restart-emacs rainbow-delimiters railscasts-theme purple-haze-theme pug-mode professional-theme popwin planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme persp-mode pcre2el pastels-on-dark-theme paradox spinner orgit organic-green-theme org-projectile org-present org-pomodoro alert log4e gntp org-plus-contrib org-download org-bullets open-junk-file omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme ob-elixir org noctilux-theme niflheim-theme neotree naquadah-theme mwim mustang-theme multi-term move-text monokai-theme monochrome-theme molokai-theme moe-theme mmm-mode minimal-theme material-theme markdown-toc markdown-mode majapahit-theme magit-gitflow macrostep lush-theme lorem-ipsum livid-mode skewer-mode simple-httpd linum-relative link-hint light-soap-theme less-css-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc jbeans-theme jazz-theme ir-black-theme inkpot-theme info+ indent-guide ido-vertical-mode hydra hungry-delete htmlize helm-css-scss haml-mode flycheck-mix flycheck emmet-mode company-web web-completion-data alchemist elixir-mode twilight-anti-bright-theme quelpa hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt heroku-theme hemisu-theme help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md gandalf-theme flx-ido flatui-theme flatland-theme firebelly-theme fill-column-indicator farmhouse-theme fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu espresso-theme eshell-z eshell-prompt-extras esh-help elisp-slime-nav editorconfig dumb-jump dracula-theme django-theme diminish define-word darktooth-theme darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme company-tern company-statistics column-enforce-mode colorsarenice-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized coffee-mode clues-theme clean-aindent-mode cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme bind-key badwolf-theme auto-yasnippet auto-highlight-symbol auto-compile apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes aggressive-indent afternoon-theme adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+    (emoji-cheat-sheet-plus key-chord visual-fill-column flycheck-flow flycheck-pos-tip pos-tip flycheck-haskell company-flow ess-smart-equals ess-R-object-popup ess-R-data-view ctable ess julia-mode org-journal rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby noflet ensime sbt-mode scala-mode sql-indent dockerfile-mode docker tablist docker-tramp tide typescript-mode yaml-mode autothemer auto-complete company helm helm-core dash async intero hlint-refactor hindent helm-hoogle haskell-snippets company-ghci company-ghc ghc haskell-mode company-cabal cmm-mode csv-mode parent-mode projectile request gitignore-mode flx magit magit-popup git-commit with-editor smartparens iedit anzu evil goto-chg undo-tree highlight f s dash-functional tern bind-map yasnippet packed zonokai-theme zenburn-theme zen-and-art-theme xterm-color ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package underwater-theme ujelly-theme twilight-theme twilight-bright-theme tronesque-theme toxi-theme toc-org tao-theme tangotango-theme tango-plus-theme tango-2-theme tagedit sunny-day-theme sublime-themes subatomic256-theme subatomic-theme stekene-theme spacemacs-theme spaceline powerline spacegray-theme soothe-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smeargle slim-mode shell-pop seti-theme scss-mode sass-mode reverse-theme restart-emacs rainbow-delimiters railscasts-theme purple-haze-theme pug-mode professional-theme popwin planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme persp-mode pcre2el pastels-on-dark-theme paradox spinner orgit organic-green-theme org-projectile org-present org-pomodoro alert log4e gntp org-plus-contrib org-download org-bullets open-junk-file omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme ob-elixir org noctilux-theme niflheim-theme neotree naquadah-theme mwim mustang-theme multi-term move-text monokai-theme monochrome-theme molokai-theme moe-theme mmm-mode minimal-theme material-theme markdown-toc markdown-mode majapahit-theme magit-gitflow macrostep lush-theme lorem-ipsum livid-mode skewer-mode simple-httpd linum-relative link-hint light-soap-theme less-css-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc jbeans-theme jazz-theme ir-black-theme inkpot-theme info+ indent-guide ido-vertical-mode hydra hungry-delete htmlize helm-css-scss haml-mode flycheck-mix flycheck emmet-mode company-web web-completion-data alchemist elixir-mode twilight-anti-bright-theme quelpa hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt heroku-theme hemisu-theme help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md gandalf-theme flx-ido flatui-theme flatland-theme firebelly-theme fill-column-indicator farmhouse-theme fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu espresso-theme eshell-z eshell-prompt-extras esh-help elisp-slime-nav editorconfig dumb-jump dracula-theme django-theme diminish define-word darktooth-theme darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme company-tern company-statistics column-enforce-mode colorsarenice-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized coffee-mode clues-theme clean-aindent-mode cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme bind-key badwolf-theme auto-yasnippet auto-highlight-symbol auto-compile apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes aggressive-indent afternoon-theme adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+ '(ring-bell-function nil)
+ '(shell-file-name "/bin/sh")
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
@@ -366,7 +436,8 @@ you should place your code here."
      (320 . "#de935f")
      (340 . "#f0c674")
      (360 . "#b5bd68"))))
- '(vc-annotate-very-old-color nil))
+ '(vc-annotate-very-old-color nil)
+ '(visible-bell t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

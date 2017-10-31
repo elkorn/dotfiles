@@ -55,14 +55,13 @@ font pango:System San Francisco Display 9
 set $gaps 10
 
 gaps inner $gaps 
-gaps outer $gaps
 smart_gaps on
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Shift+Return exec i3-sensible-terminal
+bindsym $mod+Shift+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+c kill
@@ -188,7 +187,9 @@ bindsym $mod+r mode "  "
 bar {
         status_command i3status --config ~/.config/i3/status.conf
         font pango: System San Francisco Display, FontAwesome 10
-        position bottom
+        position top
+        mode    hide
+
         colors {
           separator $base03
           background $base01
@@ -253,18 +254,19 @@ exec --no-startup-id nm-applet
 exec --no-startup-id redshift
 exec --no-startup-id dropbox
 exec --no-startup-id conky -c ~/.conky/defaultrc
+exec --no-startup-id i3-msg 'workspace $workspace9; exec "chromium --app http://www.tomato.es/"a'
 # exec --no-startup-id i3-msg 'workspace 5; exec skype'
-exec_always spotify
+exec_always spotify --force-device-scale-factor=2
 exec_always compton -m 0.8
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"
     bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
     bindsym h exec --no-startup-id i3exit hibernate, mode "default"
     bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+    bindsym Shift+s exec --no-startup-id shutdown now, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
