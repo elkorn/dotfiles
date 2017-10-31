@@ -1,0 +1,9 @@
+[Unit]
+Description=Schedule dotfile updates
+
+[Timer]
+OnBootSec=30s
+OnActiveSec=30s
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,7 @@
+[Unit]
+Description=Update dotfiles
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/elkorn/.config/dotfiles/
+ExecStart=/usr/bin/make all

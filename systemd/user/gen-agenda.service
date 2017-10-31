@@ -1,0 +1,6 @@
+[Unit]
+Description=Generate agenda
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /home/elkorn/Documents/Bash/genAgenda.sh
