@@ -307,18 +307,16 @@ you should place your code here."
   (setq web-beautify-js-program "/home/elkorn/.nvm/versions/node/v7.4.0/bin/es-beautifier")
   (setf my-head-extra
         (concat
-         "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n"
-         "<link rel='stylesheet' href='/home/elkorn/www/main.css' />"))
+         "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n"))
   (setq org-publish-project-alist '(("org"
                                      :base-directory "~/org"
-                                     :publishing-directory "~/www/org"
+                                     :publishing-directory "~/org/docs"
                                      :publishing-function org-html-publish-to-html
-                                     :with-toc 1
-                                     :recursive 1
-                                     :with-author t
-                                     :with-creator t
-
-                                     :headline-level 4
+                                     :with-toc t
+                                     :recursive t
+                                     :auto-index t
+                                     :auto-preamble t
+                                     :headline-levels 4
                                      :html-link-home "/org"
                                      :html-postamble t
                                      :html-head-include-scripts nil

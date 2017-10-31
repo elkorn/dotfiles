@@ -227,8 +227,8 @@ for_window [class="VirtualBox"] move container to workspace $workspace7
 
 bindsym $mod+BackSpace exec i3lock
 
-bindsym Print exec scrot ~/Data/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.jpg
-bindsym --release $mod+Print exec scrot -s  ~/Data/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.jpg
+bindsym Print exec scrot ~/Documents/Screenshots/%Y-%m-%d-%T-screenshot.jpg
+bindsym --release $mod+Print exec scrot -s  ~/Documents/Screenshots/%Y-%m-%d-%T-screenshot.jpg
 
 bindsym XF86AudioRaiseVolume exec "amixer sset Master '5%+' && killall -SIGUSR1 i3status"
 bindsym XF86AudioLowerVolume exec "amixer sset Master '5%-' && killall -SIGUSR1 i3status"
