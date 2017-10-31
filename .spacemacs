@@ -294,8 +294,8 @@ you should place your code here."
   (setq multi-term-program "/usr/bin/zsh")
   (setq ring-bell-function nil)
   (setq visible-bell 't)
-  (setq org-directory "~/Dropbox/org")
-  (setq org-journal-dir "~/Dropbox/org/journal")
+  (setq org-directory "~/org")
+  (setq org-journal-dir "~/org/journal")
   (setq-default fill-column 80)
   (defun my-org-export-format-drawer (name content)
     (concat "<div class=\"drawer " (downcase name) "\">\n"
@@ -307,18 +307,19 @@ you should place your code here."
   (setq web-beautify-js-program "/home/elkorn/.nvm/versions/node/v7.4.0/bin/es-beautifier")
   (setf my-head-extra
         (concat
-         "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n"
-         "<link rel='stylesheet' href='/home/elkorn/www/main.css' />"))
+         "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n"))
+  (setq org-agenda-files '("~/org/private" "~/org/private/work" "~/org/private/projects"))
   (setq org-publish-project-alist '(("org"
                                      :base-directory "~/org"
-                                     :publishing-directory "~/www/org"
+                                     :publishing-directory "~/org"
                                      :publishing-function org-html-publish-to-html
-                                     :with-toc 1
-                                     :recursive 1
-                                     :with-author t
-                                     :with-creator t
-
-                                     :headline-level 4
+                                     :with-toc t
+                                     :recursive t
+                                     :auto-index t
+                                     :makeindex t
+                                     :auto-sitemap t
+                                     :auto-preamble t
+                                     :headline-levels 4
                                      :html-link-home "/org"
                                      :html-postamble t
                                      :html-head-include-scripts nil
@@ -405,9 +406,6 @@ you should place your code here."
  '(flycheck-check-syntax-automatically (quote (save mode-enabled)))
  '(js2-strict-missing-semi-warning nil)
  '(js2-strict-trailing-comma-warning nil)
- '(org-agenda-files
-   (quote
-    ("~/Dropbox/org/work/epimap.org" "~/Dropbox/org/notes.org" "~/Dropbox/org/work/makersden.org" "~/Dropbox/org/TODOs.org")))
  '(org-agenda-todo-list-sublevels nil)
  '(org-time-clocksum-use-effort-durations t)
  '(package-selected-packages

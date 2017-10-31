@@ -227,8 +227,8 @@ for_window [class="VirtualBox"] move container to workspace $workspace7
 
 bindsym $mod+BackSpace exec i3lock
 
-bindsym Print exec scrot ~/Data/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.jpg
-bindsym --release $mod+Print exec scrot -s  ~/Data/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.jpg
+bindsym Print exec scrot ~/Documents/Screenshots/%Y-%m-%d-%T-screenshot.jpg
+bindsym --release $mod+Print exec scrot -s  ~/Documents/Screenshots/%Y-%m-%d-%T-screenshot.jpg
 
 bindsym XF86AudioRaiseVolume exec "amixer sset Master '5%+' && killall -SIGUSR1 i3status"
 bindsym XF86AudioLowerVolume exec "amixer sset Master '5%-' && killall -SIGUSR1 i3status"
@@ -254,7 +254,8 @@ exec --no-startup-id nm-applet
 exec --no-startup-id redshift
 exec --no-startup-id dropbox
 exec --no-startup-id conky -c ~/.conky/defaultrc
-exec --no-startup-id i3-msg 'workspace $workspace9; exec "chromium --app http://www.tomato.es/"a'
+exec --no-startup-id i3-msg 'workspace $workspace9; exec "surf tomato.es"'
+exec --no-startup-id i3-msg 'workspace $workspace9; exec "surf theoldreader.com"'
 # exec --no-startup-id i3-msg 'workspace 5; exec skype'
 exec_always spotify --force-device-scale-factor=2
 exec_always compton -m 0.8
