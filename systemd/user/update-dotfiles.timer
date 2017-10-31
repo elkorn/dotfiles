@@ -2,8 +2,8 @@
 Description=Schedule dotfile updates
 
 [Timer]
-OnBootSec=30s
-OnActiveSec=30s
+OnBootSec=15s
+OnCalendar=*:*:0,15,30,45
 
 [Install]
 WantedBy=timers.target
