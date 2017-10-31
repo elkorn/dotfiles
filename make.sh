@@ -1,4 +1,4 @@
 #!/bin/bash
 
-echo "Making"
+ssh-add $HOME/.ssh/id_rsa
 make all
