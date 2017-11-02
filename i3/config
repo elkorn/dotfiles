@@ -246,7 +246,7 @@ bindsym XF86AudioPlay exec --no-startup-id "dbus-send --print-reply --dest=org.m
   client.urgent           $base02 $base08    $base00 $base0F
 
 # exec --no-startup-id xsetroot -solid "#000000"
-exec --no-startup-id feh --bg-scale ~/Data/Pictures/Wallpapers/photo-1443890923422-7819ed4101c0.jpg
+exec --no-startup-id feh --bg-scale ~/Desktop/Wallpapers/azcdpnkjedvz.jpg
 exec --no-startup-id xset r rate 150 70
 exec --no-startup-id xset m 0 0
 exec --no-startup-id setxkbmap -layout pl -option ctrl:nocaps
@@ -254,7 +254,8 @@ exec --no-startup-id nm-applet
 exec --no-startup-id redshift
 exec --no-startup-id dropbox
 exec --no-startup-id conky -c ~/.conky/defaultrc
-exec --no-startup-id i3-msg 'workspace $workspace9; exec "chromium --app http://www.tomato.es/"a'
+exec --no-startup-id i3-msg 'workspace $workspace9; exec "surf tomato.es"'
+exec --no-startup-id i3-msg 'workspace $workspace9; exec "surf theoldreader.com"'
 # exec --no-startup-id i3-msg 'workspace 5; exec skype'
 exec_always spotify --force-device-scale-factor=2
 exec_always compton -m 0.8

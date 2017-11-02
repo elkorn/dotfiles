@@ -1,3 +1,15 @@
+#
+# Configuration sourced by interactive shells
+#
+
+# Change default zim location
+export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+
+# Source zim
+if [[ -s ${ZIM_HOME}/init.zsh ]]; then
+    source ${ZIM_HOME}/init.zsh
+fi
+
 # User configuration
 
 # You may need to manually set your language environment
@@ -27,26 +39,28 @@
 export NVM_DIR="/home/elkorn/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
+export PATH="$PATH:$HOME/.rvm/bin:$HOME/.yarn/bin"
+
 alias ls='ls --color=auto'
 alias ll='ls -la --color=auto'
 alias diff='diff --color'
 
- calc () { awk "BEGIN { print $* }" }
+calc () { awk "BEGIN { print $* }" }
 
 # Enable running new termite window in cwd.
 if [[ $TERM == xterm-termite ]]; then
     . /etc/profile.d/vte.sh
     __vte_osc7
 fi
-eval 
-            fuck () {
-                TF_PREVIOUS=$(fc -ln -1 | tail -n 1);
-                TF_CMD=$(
-                    TF_ALIAS=fuck
-                    TF_SHELL_ALIASES=$(alias)
-                    PYTHONIOENCODING=utf-8
-                    thefuck $TF_PREVIOUS THEFUCK_ARGUMENT_PLACEHOLDER $*
-                ) && eval $TF_CMD;
-                test -n "$TF_CMD" && print -s $TF_CMD
-            }
-        
+
+eval
+    fuck () {
+        TF_PREVIOUS=$(fc -ln -1 | tail -n 1);
+        TF_CMD=$(
+            TF_ALIAS=fuck
+            TF_SHELL_ALIASES=$(alias)
+            PYTHONIOENCODING=utf-8
+            thefuck $TF_PREVIOUS THEFUCK_ARGUMENT_PLACEHOLDER $*
+        ) && eval $TF_CMD;
+        test -n "$TF_CMD" && print -s $TF_CMD
+    }
