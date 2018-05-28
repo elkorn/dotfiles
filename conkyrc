@@ -62,10 +62,6 @@ color8 FFFFFF
 
 TEXT
 ${color grey}Uptime:$color $uptime
-${color grey}Freq:$color $freq ${color grey} MHz ($color$freq_g ${color grey}GHz)
-${color grey}RAM:$color $mem/$memmax - $memperc% ${membar 4}
-${color grey}CPU:$color $cpu% ${cpubar 4}
-${color grey}Processes:$color $processes  ${color grey}Running:$color $running_processes
 $hr
 ${execi 10 emacs -batch -l ~/.spacemacs -eval '(org-batch-agenda "n")'}
 $hr

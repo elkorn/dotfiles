@@ -16,6 +16,7 @@
 [alias]
 	p = pull
 	puhs = push
+	phus = push
   prune = remote prune
 	co = checkout
 	com = checkout master

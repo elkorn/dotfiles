@@ -246,8 +246,7 @@ bindsym XF86AudioPlay exec --no-startup-id "dbus-send --print-reply --dest=org.m
   client.urgent           $base02 $base08    $base00 $base0F
 
 # exec --no-startup-id xsetroot -solid "#000000"
-exec --no-startup-id feh --bg-scale ~/Desktop/Wallpapers/azcdpnkjedvz.jpg
-exec --no-startup-id xset r rate 150 70
+exec --no-startup-id xset r rate 150 50
 exec --no-startup-id xset m 0 0
 exec --no-startup-id setxkbmap -layout pl -option ctrl:nocaps
 exec --no-startup-id nm-applet
@@ -259,6 +258,7 @@ exec --no-startup-id i3-msg 'workspace $workspace9; exec "surf theoldreader.com"
 # exec --no-startup-id i3-msg 'workspace 5; exec skype'
 exec_always spotify --force-device-scale-factor=2
 exec_always compton -m 0.8
+exec_always feh --bg-scale ~/Desktop/Wallpapers/3-4.jpg
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {

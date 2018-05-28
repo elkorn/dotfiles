@@ -9,7 +9,6 @@ export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 if [[ -s ${ZIM_HOME}/init.zsh ]]; then
     source ${ZIM_HOME}/init.zsh
 fi
-
 # User configuration
 
 # You may need to manually set your language environment
@@ -39,7 +38,8 @@ fi
 export NVM_DIR="/home/elkorn/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-export PATH="$PATH:$HOME/.rvm/bin:$HOME/.yarn/bin"
+export PATH="$PATH:$HOME/.rvm/bin:$(yarn global bin)"
+export GRADLE_USER_HOME="$HOME/.gradle"
 
 alias ls='ls --color=auto'
 alias ll='ls -la --color=auto'

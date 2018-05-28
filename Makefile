@@ -3,6 +3,12 @@ STATUS = $(shell if [ $(FILES_AMOUNT) -eq "1" ]; then echo "1 file"; else echo "
 
 all: stage status commit push
 
+checkoutMaster:
+	git checkout master
+
+checkoutPages:
+	git checkout gh-pages
+
 stage:
 	git add --all .
 
@@ -14,3 +20,10 @@ commit:
 
 push:
 	git push --quiet --force origin master
+
+removeExceptDocs:
+	rm -rf -- ^docs
+	setopt extendedglob
+
+orgPublish:
+	emacs agenda.org -f org-publish-all
