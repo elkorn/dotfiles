@@ -235,7 +235,8 @@ for_window [window_role="pop-up"] floating enable
 for_window [class="Spotify"] move container to workspace $workspace10
 for_window [class="VLC"] move container to workspace $workspace8
 
-bindsym Mod1+BackSpace exec ~/.i3/lock.sh
+# bindsym Mod1+BackSpace exec ~/.i3/lock.sh
+bindsym Mod1+BackSpace exec i3lock -i  ~/.i3/win_lockscreen.png
 bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master '5%+' && killall -SIGUSR1 i3status"
 bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '5%-' && killall -SIGUSR1 i3status"
 bindsym XF86MonBrightnessUp exec "xbacklight -steps 1 -inc 10"
